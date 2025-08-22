@@ -1,6 +1,6 @@
 {
   "type": "code",
-  "modid": "artofgrowingpatch",
+  "modid": "artofgrowing",
   "name": "Art of Growing",
   "authors": [
     "Fedarmens"
@@ -9,6 +9,6 @@
   "version": "1.1.6",
   "dependencies": {
     "game": "",
-    "coreofartspatch": ""
+    "coreofarts": ""
   }
 }
