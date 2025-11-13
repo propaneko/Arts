@@ -22,7 +22,7 @@ namespace ArtOfGrowing.BlockEntites
         Vec3d tmpPos = new Vec3d();
         public WeatherSystemBase wsys;
 
-        public virtual int CheckIntervalMs { get; set; } = 2000;
+        public virtual int CheckIntervalMs { get; set; } = 60000;
 
         long listenerId;
 
@@ -71,69 +71,74 @@ namespace ArtOfGrowing.BlockEntites
             {
                 Api.World.Logger.Error("BETransient exiting at {0} cannot find block attributes for {1}. Will stop transient timer", Pos, this.Block.Code.ToShortString());
                 UnregisterGameTickListener(listenerId);
-                return;
-            }
-
-            // In case this block was imported from another older world. In that case lastCheckAtTotalDays would be a future date.
-            lastCheckAtTotalDays = Math.Min(lastCheckAtTotalDays, Api.World.Calendar.TotalDays);
-
-
-            ClimateCondition baseClimate = Api.World.BlockAccessor.GetClimateAt(Pos, EnumGetClimateMode.WorldGenValues);
-            if (baseClimate == null) return;
-            float baseTemperature = baseClimate.Temperature;
-
-            float oneHour = 1f / Api.World.Calendar.HoursPerDay;
-            while (Api.World.Calendar.TotalDays - lastCheckAtTotalDays > oneHour)
+            } else
             {
-                lastCheckAtTotalDays += oneHour;
-                transitionHoursLeft -= 1f;
+                // In case this block was imported from another older world. In that case lastCheckAtTotalDays would be a future date.
+                lastCheckAtTotalDays = Math.Min(lastCheckAtTotalDays, Api.World.Calendar.TotalDays);
 
-                baseClimate.Temperature = baseTemperature;
-                ClimateCondition conds = Api.World.BlockAccessor.GetClimateAt(Pos, baseClimate, EnumGetClimateMode.ForSuppliedDate_TemperatureOnly, lastCheckAtTotalDays);
 
-                if (props.Condition == EnumTransientCondition.Temperature)
+                ClimateCondition baseClimate = Api.World.BlockAccessor.GetClimateAt(Pos, EnumGetClimateMode.WorldGenValues);
+                if (baseClimate == null) return;
+                float baseTemperature = baseClimate.Temperature;
+
+                float oneHour = 1f / Api.World.Calendar.HoursPerDay;
+                while (Api.World.Calendar.TotalDays - lastCheckAtTotalDays > oneHour)
                 {
-                    if (conds.Temperature < props.WhenBelowTemperature || conds.Temperature > props.WhenAboveTemperature)
+                    lastCheckAtTotalDays += oneHour;
+                    transitionHoursLeft -= 1f;
+
+                    baseClimate.Temperature = baseTemperature;
+                    ClimateCondition conds = Api.World.BlockAccessor.GetClimateAt(Pos, baseClimate, EnumGetClimateMode.ForSuppliedDate_TemperatureOnly, lastCheckAtTotalDays);
+
+                    if (props.Condition == EnumTransientCondition.Temperature)
+                    {
+                        if (conds.Temperature < props.WhenBelowTemperature || conds.Temperature > props.WhenAboveTemperature)
+                        {
+                            tryTransition(props.ConvertTo);
+                        }
+
+                        continue;
+                    }
+
+
+                    bool reset = conds.Temperature < props.ResetBelowTemperature;
+                    bool stop = conds.Temperature < props.StopBelowTemperature;
+
+                    if (stop || reset)
+                    {
+                        transitionHoursLeft += 1f;
+
+                        if (reset)
+                        {
+                            transitionHoursLeft = props.InGameHours;
+                        }
+                        if (block.FirstCodePart() == "tallgrass")
+                            tryTransition("artofgrowing:talldrygrass-" + block.Variant["tallgrass"] + "-free");
+                        Api.World.Logger.Debug("tryTransition at {0} for variant {1}", Pos, block.Variant["tallgrass"]);
+
+
+                        continue;
+                    }
+
+                    if (transitionHoursLeft <= 0)
                     {
                         tryTransition(props.ConvertTo);
+                        Api.World.Logger.Debug("tryTransition at {0} for variant {1}", Pos, block.Variant["tallgrass"]);
+
+                        break;
                     }
-
-                    continue;
                 }
 
-
-                bool reset = conds.Temperature < props.ResetBelowTemperature;
-                bool stop = conds.Temperature < props.StopBelowTemperature;
-
-                if (stop || reset)
-                {
-                    transitionHoursLeft += 1f;
-
-                    if (reset)
-                    {
-                        transitionHoursLeft = props.InGameHours;
-                    }
-                    if (block.FirstCodePart() == "tallgrass") 
-                        tryTransition("artofgrowing:talldrygrass-" + block.Variant["tallgrass"] + "-free");
-
-                    continue;
-                }
-
-                if (transitionHoursLeft <= 0) { 
-                    tryTransition(props.ConvertTo);
-                    break;
-                }
+                tmpPos.Set(Pos.X + 0.5, Pos.Y + 0.5, Pos.Z + 0.5);
+                float rainLevel = 0;
+                bool rainCheck =
+                    Api.Side == EnumAppSide.Server
+                    && Api.World.Rand.NextDouble() < 0.75
+                    && Api.World.BlockAccessor.GetRainMapHeightAt(Pos.X, Pos.Z) <= Pos.Y
+                    && (rainLevel = wsys.GetPrecipitation(tmpPos)) > 0.04
+                ;
+                if (rainCheck) transitionHoursLeft = props.InGameHours;
             }
-            
-            tmpPos.Set(Pos.X + 0.5, Pos.Y + 0.5, Pos.Z + 0.5);
-            float rainLevel = 0;
-            bool rainCheck =
-                Api.Side == EnumAppSide.Server
-                && Api.World.Rand.NextDouble() < 0.75
-                && Api.World.BlockAccessor.GetRainMapHeightAt(Pos.X, Pos.Z) <= Pos.Y
-                && (rainLevel = wsys.GetPrecipitation(tmpPos)) > 0.04
-            ;
-            if (rainCheck) transitionHoursLeft = props.InGameHours;
         }
 
         public void tryTransition(string toCode) 

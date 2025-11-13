@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfCooking</OutputPath>
+    <OutputPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\ArtOfCooking</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Reference Include="CoreOfArts">
-      <HintPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
+      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
 		<Private>False</Private>
     </Reference>
     <Reference Include="VintagestoryAPI">
@@ -122,6 +122,10 @@
   <Folder Include="assets\game\patches\" />
   <Folder Include="assets\game\recipes\" />
   <Folder Include="assets\game\shapes\item\" />
+</ItemGroup>
+
+<ItemGroup>
+  <ProjectReference Include="..\CoreOfArt\CoreOfArt\CoreOfArts.csproj" />
 </ItemGroup>
 
 <ItemGroup>

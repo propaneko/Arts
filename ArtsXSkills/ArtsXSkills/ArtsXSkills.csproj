@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtsXSkills</OutputPath>
+    <OutputPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\ArtsXSkills</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="ArtOfGrowing">
-      <HintPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing\ArtOfGrowing.dll</HintPath>
+      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing\ArtOfGrowing.dll</HintPath>
 		<Private>false</Private>
     </Reference>
     <Reference Include="CoreOfArts">
-      <HintPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
+      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
 		<Private>false</Private>
     </Reference>
     <Reference Include="VintagestoryAPI">
@@ -56,12 +56,10 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="xlib">
-      <HintPath>..\..\..\..\..\Загрузки\xlib_v0.8.12\xlib.dll</HintPath>
-		<Private>false</Private>
+      <HintPath>..\xlib.dll</HintPath>
     </Reference>
     <Reference Include="xskills">
-      <HintPath>..\..\..\..\..\Загрузки\xskills_v0.8.12\xskills.dll</HintPath>
-		<Private>false</Private>
+      <HintPath>..\xskills.dll</HintPath>
     </Reference>
   </ItemGroup>
 

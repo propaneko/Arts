@@ -296,7 +296,22 @@ namespace CoreOfArts.Systems
                                             if (outputBlock != null) outputStack = new ItemStack(outputBlock);
                                         }
 
-                                        if (outputStack == null) outputStack = new ItemStack(capi.World.GetBlock(new AssetLocation(output.Code)));
+                                        if (outputStack == null)
+                                        {
+                                            var block = capi.World.GetBlock(new AssetLocation(output.Code));
+                                            if (block != null && block.Code != null)
+                                            {
+                                                outputStack = new ItemStack(block);
+                                            }
+                                            else
+                                            {
+                                                var items = capi.World.GetItem(new AssetLocation(output.Code));
+                                                if (items != null && items.Code != null)
+                                                {
+                                                    outputStack = new ItemStack(items);
+                                                }
+                                            }
+                                        }
 
                                         if (outputStack != null && !recipestacks.Any(s => s.Equals(capi.World, outputStack, GlobalConstants.IgnoredStackAttributes)))
                                         {

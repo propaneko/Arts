@@ -2,7 +2,7 @@
   "profiles": {
     "Client": {
       "commandName": "Executable",
-      "executablePath": "E:\\Games\\Vintagestory\\Vintagestory.exe",
+      "executablePath": "C:\\Users\\Propaneko\\AppData\\Roaming\\Vintagestory\\Vintagestory.exe",
       "commandLineArgs": "--tracelog",
       "workingDirectory": "$(VINTAGE_STORY)"
     },

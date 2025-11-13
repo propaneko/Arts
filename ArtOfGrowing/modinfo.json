@@ -1,14 +1,14 @@
 {
   "type": "code",
-  "modid": "artofgrowing",
+  "modid": "artofgrowingpatch",
   "name": "Art of Growing",
   "authors": [
     "Fedarmens"
   ],
   "description": "Realistic stages of crop growth, mowing grass and haystacks.",
-  "version": "1.1.2",
+  "version": "1.1.6",
   "dependencies": {
     "game": "",
-    "coreofarts": "0.2.0"
+    "coreofartspatch": ""
   }
 }

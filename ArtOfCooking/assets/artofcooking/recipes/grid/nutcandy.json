@@ -1,850 +1,871 @@
 [
-  {
-    "ingredientPattern": "KH",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-almondground",
-        "quantity": 6
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-almondground",
+                "quantity": 6
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "marzipan",
-    "width": 2,
-    "height": 1,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-marzipan",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-apricotpitground",
-        "quantity": 8
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "marzipan",
+        "width": 2,
+        "height": 1,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-marzipan",
+            "quantity": 4
+        }
     },
-    "name": "marzipan",
-    "width": 2,
-    "height": 1,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-marzipan",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KHW",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "game:grain-sunflower"
-      },
-      "W": {
-        "type": "item",
-        "code": "game:flour-sunflower"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-apricotpitground",
+                "quantity": 8
+            }
         },
-        "requiresLitres": 0.5
-      }
-    },
-    "name": "halva",
-    "width": 3,
-    "height": 1,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-halva",
-      "quantity": 2
-    }
-  },
-  {
-    "ingredientPattern": "KHW",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-peanutground",
-        "quantity": 6
-      },
-      "W": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "marzipan",
+        "width": 2,
+        "height": 1,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-marzipan",
+            "quantity": 4
+        }
     },
-    "name": "pacoca",
-    "width": 3,
-    "height": 1,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-pacoca",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-almond",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KHW",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "game:grain-sunflower"
+            },
+            "W": {
+                "type": "item",
+                "code": "game:flour-sunflower"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "almondbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-almondbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "game:legume-peanut",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 0.5
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "halva",
+        "width": 3,
+        "height": 1,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-halva",
+            "quantity": 2
+        }
     },
-    "name": "peanutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-peanutbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-acornleached",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KHW",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-peanutground",
+                "quantity": 6
+            },
+            "W": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "acornbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-acornbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-hazelnut",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "pacoca",
+        "width": 3,
+        "height": 1,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-pacoca",
+            "quantity": 4
+        }
     },
-    "name": "hazelbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-hazelbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-pistachionut",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-almond",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "pistachiobar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-pistachiobar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-cashewnut",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "almondbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-almondbar",
+            "quantity": 4
+        }
     },
-    "name": "cashewbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-cashewbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-macadamiashelled",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "game:legume-peanut",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "macadamiabar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-macadamiabar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-pinenut",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "peanutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-peanutbar",
+            "quantity": 4
+        }
     },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-pinenutbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "game:bowl-fired"
-      },
-      "H": {
-        "type": "item",
-        "code": "game:grain-pumpkin",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-pumpkin",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-acornleached",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-pumpkinbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "game:grain-pumpkin",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-pumpkin",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "acornbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-acornbar",
+            "quantity": 4
+        }
     },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-pumpkinbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "game:grain-sunflower",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-sunflower",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-hazelnut",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-sunflowerbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-apricotpit",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "hazelbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-hazelbar",
+            "quantity": 4
+        }
     },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-apricotbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-cherrypit",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-pistachionut",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-cherrybar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-beachalmond",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "pistachiobar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-pistachiobar",
+            "quantity": 4
+        }
     },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-beachalmondbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-oldmansaltbush",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-cashewnut",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
-    },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-saltbushbar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-bunya",
-        "quantity": 4
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
         },
-        "requiresLitres": 1
-      }
+        "name": "cashewbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-cashewbar",
+            "quantity": 4
+        }
     },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-bunyabar",
-      "quantity": 4
-    }
-  },
-  {
-    "ingredientPattern": "KH,WB",
-    "shapeless": true, "enabled": false,
-    "ingredients": {
-      "B": {
-        "type": "item",
-        "code": "game:salt"
-      },
-      "H": {
-        "type": "item",
-        "code": "wildcraftfruit:nut-hackberrypit",
-        "quantity": 4
-      },
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
-      },
-      "W": {
-        "type": "item",
-        "code": "game:grain-*",
-        "name": "type",
-        "quantity": 2
-      }
-    },
-    "attributes": {
-      "liquidContainerProps": {
-        "requiresContent": {
-          "type": "item",
-          "code": "game:honeyportion"
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-macadamiashelled",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
         },
-        "requiresLitres": 1
-      }
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "macadamiabar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-macadamiabar",
+            "quantity": 4
+        }
     },
-    "name": "pinenutbar",
-    "width": 2,
-    "height": 2,
-    "output": {
-      "type": "item",
-      "code": "wildcraftfruit:nut-hackberrybar",
-      "quantity": 4
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-pinenut",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-pinenutbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "game:bowl-*-fired"
+            },
+            "H": {
+                "type": "item",
+                "code": "game:grain-pumpkin",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-pumpkin",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-pumpkinbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "game:grain-pumpkin",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-pumpkin",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-pumpkinbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "game:grain-sunflower",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-sunflower",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-sunflowerbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-apricotpit",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-apricotbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-cherrypit",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-cherrybar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-beachalmond",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-beachalmondbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-oldmansaltbush",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-saltbushbar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-bunya",
+                "quantity": 4
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            },
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-bunyabar",
+            "quantity": 4
+        }
+    },
+    {
+        "ingredientPattern": "KH,WB",
+        "shapeless": true,
+        "enabled": false,
+        "ingredients": {
+            "B": {
+                "type": "item",
+                "code": "game:salt"
+            },
+            "H": {
+                "type": "item",
+                "code": "wildcraftfruit:nut-hackberrypit",
+                "quantity": 4
+            },
+            "K": {
+                "type": "block",
+                "code": "artofcooking:metalbowl-*-empty"
+            },
+            "W": {
+                "type": "item",
+                "code": "game:grain-*",
+                "name": "type",
+                "quantity": 2
+            }
+        },
+        "attributes": {
+            "liquidContainerProps": {
+                "requiresContent": {
+                    "type": "item",
+                    "code": "game:honeyportion"
+                },
+                "requiresLitres": 1
+            }
+        },
+        "name": "pinenutbar",
+        "width": 2,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "wildcraftfruit:nut-hackberrybar",
+            "quantity": 4
+        }
     }
-  }
 ]

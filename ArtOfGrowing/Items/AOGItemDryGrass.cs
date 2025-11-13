@@ -12,21 +12,21 @@ namespace ArtOfGrowing.Items
     {
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
-            if (byEntity.Controls.ShiftKey && byEntity.Controls.CtrlKey)
+            if (byEntity.Controls.ShiftKey)
             {
-                Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+                if (byEntity.Controls.CtrlKey)
+                {
+                    Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+                    return;
+                }
+
+                OnHeldInteractStartThatch(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
                 return;
             }
-            
-			if (itemslot.Itemstack.Item.Code.FirstCodePart() == "thatch")
-			{
-				OnHeldInteractStartThatch(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
-				return;
-			}
-            
+
             base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
         }
-        
+
         public static void Interact(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
             IWorldAccessor world = byEntity?.World;
@@ -79,7 +79,7 @@ namespace ArtOfGrowing.Items
                 handHandling = EnumHandHandling.PreventDefault;
             }
         }
-        
+
         public virtual void OnHeldInteractStartThatch(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
             if (blockSel == null || byEntity?.World == null || !byEntity.Controls.ShiftKey)

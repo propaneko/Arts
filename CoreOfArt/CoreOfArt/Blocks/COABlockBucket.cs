@@ -1,11 +1,7 @@
 ﻿using CoreOfArts.Systems;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
@@ -14,7 +10,7 @@ namespace CoreOfArts.Blocks
     public class COABlockBucket : BlockBucket
     {
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
-        { 
+        {
             if (!byEntity.Controls.ShiftKey && byEntity.Controls.CtrlKey)
             {
                 foreach (var recipe in api.GetLiquidMixingRecipes())
@@ -26,7 +22,7 @@ namespace CoreOfArts.Blocks
                             recipe.TryCraftNow(api, itemslot, byEntity, blockSel, entitySel, recipe);
                         }
                     }
-                } 
+                }
             }
 
             base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
@@ -46,30 +42,31 @@ namespace CoreOfArts.Blocks
             }
 
             return base.GetHeldInteractionHelp(inSlot).Append(
-                new WorldInteraction[]
-            {
-                new WorldInteraction()
-                {
-                    ActionLangCode = "coreofart:heldhelp-mixing",
-                    MouseButton = EnumMouseButton.Right,
-                    HotKeyCode = "ctrl",
-                    Itemstacks = stacks.ToArray(),
-                    GetMatchingStacks = (wi, bs, es) => {
-                        bool canMixing = false;
-                        foreach (var recipe in api.GetLiquidMixingRecipes())
+                [
+                    new WorldInteraction
+                    {
+                        ActionLangCode = "coreofart:heldhelp-mixing",
+                        MouseButton = EnumMouseButton.Right,
+                        HotKeyCode = "ctrl",
+                        Itemstacks = stacks.ToArray(),
+                        GetMatchingStacks = (wi, _, _) =>
                         {
-                            foreach (var ingredient in recipe.Ingredients)
+                            bool canMixing = false;
+                            foreach (var recipe in api.GetLiquidMixingRecipes())
                             {
-                                if (ingredient.ResolvedItemstack.Id == GetContent(inSlot.Itemstack)?.Id)
+                                foreach (var ingredient in recipe.Ingredients)
                                 {
-                                    canMixing = true;
+                                    if (ingredient.ResolvedItemstack.Id == GetContent(inSlot.Itemstack)?.Id)
+                                    {
+                                        canMixing = true;
+                                    }
                                 }
                             }
+
+                            return canMixing ? wi.Itemstacks : null;
                         }
-                        return canMixing ? wi.Itemstacks : null;
                     }
-                }
-            }
+                ]
             );
         }
     }

@@ -1,14 +1,14 @@
 {
   "type": "code",
-  "modid": "artofcooking",
+  "modid": "artofcookingpatch",
   "name": "Art of Cooking",
   "authors": [
     "Fedarmens"
   ],
   "description": "Bronze kitchen appliances. Kneading dough and shawarma.",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "dependencies": {
     "game": "",
-    "coreofarts": "1.0.0"
+    "coreofartspatch": ""
   }
 }

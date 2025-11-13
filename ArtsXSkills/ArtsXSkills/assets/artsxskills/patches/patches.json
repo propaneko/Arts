@@ -7,7 +7,7 @@
     "side": "Server",
     "dependsOn": [
       {
-        "modid": "artofgrowing"
+        "modid": "artofgrowingpatch"
       }
     ]
   },
@@ -19,7 +19,7 @@
     "side": "Server",
     "dependsOn": [
       {
-        "modid": "artofgrowing"
+        "modid": "artofgrowingpatch"
       }
     ]
   }
