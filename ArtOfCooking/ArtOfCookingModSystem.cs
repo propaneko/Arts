@@ -38,9 +38,11 @@ public class ArtOfCooking : ModSystem
         base.AssetsFinalize(api);
         api.GetCookingRecipes().ForEach(recipe =>
         {
-            if (!CookingRecipe.NamingRegistry.ContainsKey(recipe.Code))
+            var code = recipe?.Code;
+            var isFromAoc = code is not null && (code.StartsWith("aoc") || code.Contains("-aoc"));
+            if (isFromAoc && !CookingRecipe.NamingRegistry.ContainsKey(code))
             {
-                CookingRecipe.NamingRegistry[recipe.Code] = new AOCRecipeNames();
+                CookingRecipe.NamingRegistry[code] = new AOCRecipeNames();
             }
         });
     }
