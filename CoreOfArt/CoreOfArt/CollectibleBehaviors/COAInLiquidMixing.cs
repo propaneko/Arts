@@ -71,14 +71,20 @@ namespace CoreOfArts.CollectibleBehaviors
             var pos = blockSel?.Position;
             int sourceStackSize = slot.StackSize / recipe.SourceSize;
             int coef = 1;
-            ItemStack inputStack = new ItemStack(byEntity.World.GetItem(new AssetLocation(recipe.InputStack.Code)), 99999);
+            var inputItem = byEntity.World.GetItem(new AssetLocation(recipe.InputStack.Code));
+            if (inputItem is null) return false;
+            
+            ItemStack inputStack = new ItemStack(inputItem, 99999);
             ItemStack outputLiquid = null;
             bool isLiquid = false;
 
             if (recipe.OutputLiquid != null)
             {
-                outputLiquid = new ItemStack(byEntity.World.GetItem(new AssetLocation(recipe.OutputLiquid?.Code)), 99999);
-                isLiquid = outputLiquid?.Collectible?.Attributes?["waterTightContainerProps"].Exists == true;
+                var outputItem = byEntity.World.GetItem(new AssetLocation(recipe.OutputLiquid.Code));
+                if (recipe.OutputStacks is null && outputItem is null) return false;
+                
+                outputLiquid = new ItemStack(outputItem, 99999);
+                isLiquid = outputLiquid.Collectible?.Attributes?["waterTightContainerProps"].Exists == true;
             }
 
             if (recipe.OutputStacks == null && outputLiquid == null || inputStack == null) return false;
@@ -144,9 +150,10 @@ namespace CoreOfArts.CollectibleBehaviors
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling, ref EnumHandling handling)
         {
-            Block block = byEntity.World.BlockAccessor.GetBlock(blockSel?.Position);
-            if (ActiveRecipe != null) ActiveRecipe = null;
-            if (Recipes != null && block != null && !byEntity.Controls.ShiftKey && byEntity.Controls.CtrlKey)
+            var selectedPos = blockSel?.Position;
+            Block block = selectedPos is null ? null : byEntity.World.BlockAccessor.GetBlock(selectedPos);
+            ActiveRecipe = null;
+            if (Recipes != null && block != null && byEntity.Controls is { ShiftKey: false, CtrlKey: true})
             {
                 foreach (var rec in Recipes)
                 {
@@ -164,20 +171,13 @@ namespace CoreOfArts.CollectibleBehaviors
                         ActiveRecipe = rec;
                         break;
                     }
-                    else
-                    {
-                        continue;
-                    }
                 }
-                if (ActiveRecipe == null)
+                if (ActiveRecipe is not null)
                 {
-                    base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handHandling, ref handling);
+                    return;
                 }
             }
-            else
-            { 
-                base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handHandling, ref handling); 
-            }
+            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handHandling, ref handling);
         }
 
         public override bool OnHeldInteractStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, ref EnumHandling handling)
