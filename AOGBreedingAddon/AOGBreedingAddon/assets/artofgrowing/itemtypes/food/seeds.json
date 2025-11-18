@@ -1,7 +1,18 @@
 {
 	"code": "seeds",
 	"class": "AOGItemPlantableSeed",
-	"storageFlags": 33,
+	"storageFlags": 33, 
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Quadrants",
+        "ctrlKey": true,
+        "selectionBox": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.1, "z2": 1 },
+        "collisionBox": { "x1": 0, "y1": 0, "z1": 0, "x2": 0, "y2": 0, "z2": 0 }
+      }
+    }
+  ],
 	"maxstacksizeByType": {
 		"*-wild-*": 128,
 		"*-small-*": 96,
@@ -11,6 +22,9 @@
 		"*-hefty-*": 24,
 		"*-gigantic-*": 16
 	},
+  "attributes": {
+    "groundStorageTransform": { "translation": { "x": 0, "y": -0.2, "z": 0 }, "scale": 0.65 }
+  },
 	"variantgroups": [
 		{
 			"code": "size",

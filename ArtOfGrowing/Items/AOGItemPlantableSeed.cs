@@ -56,6 +56,10 @@ namespace ArtOfGrowing.Items
 
                 if (planted) handHandling = EnumHandHandling.PreventDefault;
             }
+            else
+            {
+                base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+            }
         }
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {   
