@@ -285,6 +285,8 @@ namespace ArtOfGrowing.BlockEntites
         
         private void Update(float dt)
         { 
+            if (Pos is null || Api?.World?.BlockAccessor is null) return;
+            
             ItemSlot invSlot = inventory[0];
             if (invSlot.Empty) return;
             
@@ -293,7 +295,7 @@ namespace ArtOfGrowing.BlockEntites
             Api.World.BlockAccessor.SearchFluidBlocks(
                 new BlockPos(Pos.X, Pos.Y, Pos.Z),
                 new BlockPos(Pos.X, Pos.Y, Pos.Z),
-                (block, pos) =>
+                (block, _) =>
                 {
                     if (block.LiquidCode == "water") water = true;
                     return true;
@@ -301,16 +303,14 @@ namespace ArtOfGrowing.BlockEntites
             );
 
             tmpPos.Set(Pos.X + 0.5, Pos.Y + 0.5, Pos.Z + 0.5);
-            float rainLevel = 0;
             bool rainCheck =
                 Api.Side == EnumAppSide.Server
                 && Api.World.Rand.NextDouble() < 0.75
                 && Api.World.BlockAccessor.GetRainMapHeightAt(Pos.X, Pos.Z) <= Pos.Y
-                && (rainLevel = blockStorage.wsys.GetPrecipitation(tmpPos)) > 0.04
+                && (blockStorage.wsys.GetPrecipitation(tmpPos)) > 0.04
             ;
-            if (rainCheck) rain = true; 
-            else rain = false;
-            
+            if (rainCheck) rain = true;
+
             if (water || rain) 
             { 
                 TransitionState[] transitionStates = invSlot.Itemstack?.Collectible.UpdateAndGetTransitionStates(Api.World, invSlot); 
@@ -347,7 +347,7 @@ namespace ArtOfGrowing.BlockEntites
                 if (invSlot.Itemstack?.Collectible.Code != code)
                 {                    
                     AOGBlockGroundStorage blockgs = Api.World.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
-                    blockgs.CreateStorageFromMowing(Api.World, Pos, invSlot.Itemstack);
+                    blockgs?.CreateStorageFromMowing(Api.World, Pos, invSlot.Itemstack);
                 }
             }
 

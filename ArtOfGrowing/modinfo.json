@@ -6,7 +6,7 @@
     "Fedarmens"
   ],
   "description": "Realistic stages of crop growth, mowing grass and haystacks.",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "dependencies": {
     "game": "",
     "coreofartspatch": ""
