@@ -17,7 +17,7 @@
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-whole",
-					"shapeElement": "bowl/egg/*",
+					"shapeElement": "bowl/egg1/*",
 					"textureMapping": [ "scrambledegg", "group7" ]
 				}
 			],
@@ -31,19 +31,19 @@
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-whole",
-					"shapeElement": "bowl/cheese 1/*",
+					"shapeElement": "bowl/cheese2/*",
 					"textureMapping": [ "cheese", "group7" ]
 				},
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-yolk",
-					"shapeElement": "bowl/cheese 1/*",
+					"shapeElement": "bowl/cheese2/*",
 					"textureMapping": [ "cheese", "group7" ]
 				},
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-white",
-					"shapeElement": "bowl/cheese 1/*",
+					"shapeElement": "bowl/cheese2/*",
 					"textureMapping": [ "cheese", "group1" ]
 				},
 				{
@@ -53,72 +53,72 @@
 				{
 					"type": "item",
 					"code": "game:cheese-cheddar-1slice",
-					"shapeElement": "bowl/cheese 1/*"
+					"shapeElement": "bowl/cheese2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:cheese-blue-1slice",
-					"shapeElement": "bowl/cheese 1/*"
+					"shapeElement": "bowl/cheese2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-cabbage",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-carrot",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-onion",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-parsnip",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-turnip",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-pumpkin",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-cassava",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-bellpepper",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:mushroom-*",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:legume-soybean",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:pickledvegetable-*",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				},
 				{
 					"type": "item",
 					"code": "game:pickledlegume-soybean",
-					"shapeElement": "bowl/vegetable 1/*"
+					"shapeElement": "bowl/vegetable2/*"
 				}
 			],
 			"minQuantity": 0,
@@ -131,19 +131,19 @@
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-whole",
-					"shapeElement": "bowl/cheese 2/*",
+					"shapeElement": "bowl/cheese3/*",
 					"textureMapping": [ "cheese", "group7" ]
 				},
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-yolk",
-					"shapeElement": "bowl/cheese 2/*",
+					"shapeElement": "bowl/cheese3/*",
 					"textureMapping": [ "cheese", "group7" ]
 				},
 				{
 					"type": "item",
 					"code": "artofcooking:eggportion-raw-white",
-					"shapeElement": "bowl/cheese 2/*",
+					"shapeElement": "bowl/cheese3/*",
 					"textureMapping": [ "cheese", "group1" ]
 				},
 				{
@@ -153,72 +153,72 @@
 				{
 					"type": "item",
 					"code": "game:cheese-cheddar-1slice",
-					"shapeElement": "bowl/cheese 2/*"
+					"shapeElement": "bowl/cheese3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:cheese-blue-1slice",
-					"shapeElement": "bowl/cheese 2/*"
+					"shapeElement": "bowl/cheese3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-cabbage",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-carrot",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-onion",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-parsnip",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-turnip",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-pumpkin",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-cassava",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:vegetable-bellpepper",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:mushroom-*",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:legume-soybean",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:pickledvegetable-*",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				},
 				{
 					"type": "item",
 					"code": "game:pickledlegume-soybean",
-					"shapeElement": "bowl/vegetable 2/*"
+					"shapeElement": "bowl/vegetable3/*"
 				}
 			],
 			"minQuantity": 0,

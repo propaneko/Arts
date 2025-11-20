@@ -1,7 +1,7 @@
 [
   {
     "op": "addmerge",
-    "path": "/ingredients/4/validStacks/-",
+    "path": "/ingredients/5/validStacks/-",
     "value": {
       "type": "item",
       "code": "vegetable-*",
@@ -12,7 +12,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/ingredients/5/validStacks/-",
+    "path": "/ingredients/6/validStacks/-",
     "value": {
       "type": "item",
       "code": "vegetable-*",
