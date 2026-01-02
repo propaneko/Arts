@@ -74,7 +74,7 @@ namespace ArtOfGrowing.Blocks
         public override void OnBlockInteractStop(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
             ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
-            if (slot != null)
+            if (!slot.Empty)
             { 
 			if (slot.Itemstack.Collectible is ItemKnife || slot.Itemstack.Collectible is ItemCleaver)
 			{
