@@ -32,7 +32,7 @@ namespace ArtOfGrowing.Blocks
                     ItemStack[] drops = array;
                     ItemStack hayStack = drops[0].Clone();
                     drops[0].StackSize = 0;
-                    AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+                    AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("artofgrowing:haystorage")) as AOGBlockGroundStorage;
                     blockgs.CreateStorageFromMowing(world, pos, hayStack);
                     
                     if (drops != null)
@@ -62,32 +62,52 @@ namespace ArtOfGrowing.Blocks
                 base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
         }
     }   
+    
     internal class AOGBlockTallGrass : BlockPlant
     {
         public override void OnBlockBroken(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
         {
-            base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
             var grass = "grass";
             switch (FirstCodePart()) 
             { 
-                case "talldrygrass":
-                    grass = "drygrass";
-                    break;
+            case "talldrygrass":
+                grass = "drygrass";
+                break;
             }
 
             if (byPlayer?.InventoryManager.ActiveTool == EnumTool.Knife && Variant["tallgrass"] != null && Variant["tallgrass"] != "eaten")
             {
-                world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-eaten-veryshort-" + grass + "-free")).Id, pos);
+                base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
+                var blockCode = "artofgrowing:haylayer-eaten-veryshort-" + grass + "-free";
+                var blockPos = pos.Copy();
+                world.RegisterCallback((dt) => {
+                    var haylayerBlock = world.GetBlock(new AssetLocation(blockCode));
+                    if (haylayerBlock != null && haylayerBlock.Id != 0)
+                    world.BlockAccessor.SetBlock(haylayerBlock.Id, blockPos);
+                }, 50);
+                return;
             }
-        
+
             if (byPlayer?.InventoryManager.ActiveTool == EnumTool.Scythe && Variant["tallgrass"] != null && Variant["tallgrass"] != "eaten")
             {
                 bool trimMode = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.GetInt("toolMode", 0) == 0;
-                if (trimMode) world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-eaten-" + Variant["tallgrass"] + "-" + grass + "-free")).Id, pos);
-                else world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-free-" + Variant["tallgrass"] + "-" + grass + "-free")).Id, pos);
-            }            
+                var blockCode = trimMode 
+                    ? "artofgrowing:haylayer-eaten-" + Variant["tallgrass"] + "-" + grass + "-free"
+                    : "artofgrowing:haylayer-free-" + Variant["tallgrass"] + "-" + grass + "-free";
+                var blockPos = pos.Copy();
+                base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
+                world.RegisterCallback((dt) => {
+                    var haylayerBlock = world.GetBlock(new AssetLocation(blockCode));
+                    if (haylayerBlock != null && haylayerBlock.Id != 0)
+                    world.BlockAccessor.SetBlock(haylayerBlock.Id, blockPos);
+                }, 50);
+                return;
+            }
+
+            base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
         }
-    }    
+    }
+
     internal class AOGBlockHayLayer: Block, IDrawYAdjustable
     {
         public static float WildCropDropMul = 0.25f;

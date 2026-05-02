@@ -15,16 +15,19 @@
 			}
 		}
 	],
+    "entityBehaviors": [ 
+        { "name": "Burning" }, 
+        { "name": "TemperatureSensitive" }, 
+        { "name": "ContainedBagInventory" }
+    ],
 	"class": "AOGBlockHayStorage",
 	"entityClass": "AOGHayStorage",
 	"shape": {
-		"base": "game:block/basic/invisible"
-	},
+		"base": "game:block/basic/invisible" },
 	"renderpass": "OpaqueNoCull",
 	"sidesolid": { "all": false },
 	"sideopaque": { "all": false },
-	"faceCullMode": "Default",
-	"doNotRenderAtLod2": true,
+	"faceCullMode": "NeverCull",
 	"blockmaterial": "Plant",
 	"materialDensity": 200,
 	"combustibleProps": {

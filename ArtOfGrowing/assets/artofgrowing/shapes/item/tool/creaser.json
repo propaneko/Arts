@@ -10,7 +10,7 @@
 	},
 	"textures": {
 		"oak": "game:block/wood/debarked/oak",
-		"string": "game:item/tool/material/string"
+		"string": "game:item/resource/string"
 	},
 	"elements": [
 		{

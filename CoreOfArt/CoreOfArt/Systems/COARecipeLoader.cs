@@ -10,6 +10,13 @@ using Vintagestory.GameContent;
 
 namespace CoreOfArts.Systems
 {
+    public interface ICOARecipe : IRecipeBase
+    {
+        IRecipeIngredient[] Ingredients { get; }
+        IRecipeOutput Output { get; }
+        new ICOARecipe Clone();
+    }
+
     public class COARecipeLoader : ModSystem
     {
         ICoreServerAPI api;
@@ -35,7 +42,7 @@ namespace CoreOfArts.Systems
 
             sapi.World.Logger.StoryEvent(Lang.Get("Kneaded dough..."));
         }
-        public void LoadRecipes<T>(string name, string path, Action<T> RegisterMethod) where T : IRecipeBase<T>
+        public void LoadRecipes<T>(string name, string path, Action<T> RegisterMethod) where T : class, ICOARecipe
         {
             Dictionary<AssetLocation, JToken> files = api.Assets.GetMany<JToken>(api.Server.Logger, path);
             int recipeQuantity = 0;
@@ -63,12 +70,14 @@ namespace CoreOfArts.Systems
         }
 
 
-        void LoadGenericRecipe<T>(string className, AssetLocation path, T recipe, Action<T> RegisterMethod, ref int quantityRegistered, ref int quantityIgnored) where T : IRecipeBase<T>
+        void LoadGenericRecipe<T>(string className, AssetLocation path, T recipe, Action<T> RegisterMethod, ref int quantityRegistered, ref int quantityIgnored) where T : class, ICOARecipe
         {
             if (!recipe.Enabled) return;
             if (recipe.Name == null) recipe.Name = path;
 
-            Dictionary<string, string[]> nameToCodeMapping = recipe.GetNameToCodeMapping(api.World);
+            Dictionary<string, string[]> nameToCodeMapping = (recipe as COALiquidMixingRecipe)?.GetNameToCodeMapping(api.World) 
+                ?? new Dictionary<string, string[]>();
+
 
             if (nameToCodeMapping.Count > 0)
             {
@@ -88,12 +97,11 @@ namespace CoreOfArts.Systems
                 {
                     string variantCode = val2.Key;
                     string[] variants = val2.Value;
-
                     for (int i = 0; i < qCombs; i++)
                     {
                         T rec;
 
-                        if (first) subRecipes.Add(rec = recipe.Clone());
+                        if (first) subRecipes.Add(rec = (T)recipe.Clone()); // fixed object conversion for 1.22
                         else rec = subRecipes[i];
 
                         if (rec.Ingredients != null)

@@ -1,6 +1,7 @@
 [
   {
     "file": "game:blocktypes/plant/tallgrass.json",
+    "side": "Server",
     "op": "replace",
     "path": "/dropsByType",
     "value": {
@@ -9,6 +10,7 @@
   },
   {
     "file": "game:blocktypes/plant/tallgrass.json",
+    "side": "Server",
     "op": "replace",
     "path": "/entityClassByType",
     "value": {
@@ -16,6 +18,7 @@
     }
   },
   {
+    "side": "Server",
     "op": "replace",
     "file": "game:blocktypes/plant/tallgrass.json",
     "path": "/attributes/transientPropsByType",

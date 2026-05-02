@@ -13,12 +13,6 @@
   },
   {
     "op": "remove",
-    "path": "/fpHandTransformByType",
-    "file": "game:itemtypes/food/legume.json",
-    "side": "Server"
-  },
-  {
-    "op": "remove",
     "path": "/groundTransformByType",
     "file": "game:itemtypes/food/legume.json",
     "side": "Server"

@@ -1,13 +1,16 @@
-﻿using ArtOfGrowing.BlockBehaviors;
+﻿using HarmonyLib;
+using ArtOfGrowing.BlockBehaviors;
 using ArtOfGrowing.BlockEntites;
 using ArtOfGrowing.Blocks;
 using ArtOfGrowing.Items;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Util;
+using Vintagestory.API.Client;
 using Vintagestory.Client.NoObf;
 using Vintagestory.Common;
 using Vintagestory.GameContent;
+using Vintagestory.API.Server;
 using Vintagestory.Server;
 
 namespace ArtOfGrowing
@@ -50,6 +53,16 @@ namespace ArtOfGrowing
             }
 
             api.World.Logger.StoryEvent(Lang.Get("It grows..."));        
+        }
+        
+        public override void StartServerSide(ICoreServerAPI api)
+        {
+            new Harmony("artofgrowing").PatchAll();
+        }
+
+        public override void StartClientSide(ICoreClientAPI api)
+        {
+            new Harmony("artofgrowing").PatchAll();
         }
     }
 }

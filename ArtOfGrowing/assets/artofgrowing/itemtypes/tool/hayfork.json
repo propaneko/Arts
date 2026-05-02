@@ -99,9 +99,13 @@
 	"heldTpHitAnimation": "shoveldig",
 	"heldTpUseAnimation": "interactStaticLong",
 	"texturesByType": {
+		"hayfork-wooden": {
+        "material": { "base": "game:block/wood/debarked/oak" }
+    	},
 		"*": {
 			"material": { "base": "game:block/metal/ingot/{material}" }
 		}
+		
 	},
 	"attackpowerbytype": {
 		"hayfork-wooden": 0.75,

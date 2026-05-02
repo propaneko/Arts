@@ -10,8 +10,8 @@
 		"handle": [32,16]
 	},
 	"textures": {
-		"string": "game:item/tool/material/string",
-		"handle": "game:item/tool/material/woodenclub"
+		"string": "game:item/resource/string",
+		"handle": "game:block/wood/debarked/oak"
 	},
 	"elements": [
 		{

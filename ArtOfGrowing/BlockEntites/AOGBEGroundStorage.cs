@@ -14,6 +14,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using OrderedDictionaryStr = Vintagestory.API.Datastructures.OrderedDictionary<string, int>; // fixing ambigous shit (ik not meta)
 
 namespace ArtOfGrowing.BlockEntites
 {
@@ -346,13 +347,14 @@ namespace ArtOfGrowing.BlockEntites
                 invSlot.Itemstack.Collectible.UpdateAndGetTransitionStates(Api.World, invSlot);
                 if (invSlot.Itemstack?.Collectible.Code != code)
                 {                    
-                    AOGBlockGroundStorage blockgs = Api.World.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+                    AOGBlockGroundStorage blockgs = Api.World.GetBlock(new AssetLocation("artofgrowing:haystorage")) as AOGBlockGroundStorage;
                     blockgs?.CreateStorageFromMowing(Api.World, Pos, invSlot.Itemstack);
                 }
             }
 
         }
-        public void CoolNow(float amountRel)
+
+        public void CoolNow(float amountRel, OnStackToCool onStackToCool)
         {
             if (!Inventory.Empty)
             {
@@ -1330,7 +1332,7 @@ namespace ArtOfGrowing.BlockEntites
 
         public virtual string[] getContentSummary()
         {
-            OrderedDictionary<string, int> dict = new OrderedDictionary<string, int>();
+            OrderedDictionaryStr dict = new OrderedDictionaryStr();
 
             foreach (var slot in inventory)
             {
@@ -1393,7 +1395,21 @@ namespace ArtOfGrowing.BlockEntites
             }
             NeedsRetesselation = false;
             lock (inventoryLock)
-            {
+            {  
+                if (!Inventory.Empty && StorageProps?.Layout == EnumGroundStorageLayout.Stacking) // bypassed renderer that was breaking client-side grass stack in 1.22 -trumiic
+                {
+                    var slot = Inventory[0];
+                    if (slot?.Itemstack != null)
+                    {
+                        var mesh = getOrCreateMesh(slot, 0);
+                        if (mesh != null)
+                        {
+                            meshdata.AddMeshData(mesh);
+                            return false;
+                        }
+                    }
+                }
+                
                 return base.OnTesselation(meshdata, tesselator);
             }
         }
@@ -1467,27 +1483,27 @@ namespace ArtOfGrowing.BlockEntites
             }
         }
 
-        protected override string getMeshCacheKey(ItemStack stack)
+        protected new string getMeshCacheKey(ItemSlot slot)
         {
-            return (StorageProps.ModelItemsToStackSizeRatio > 0 ? stack.StackSize : 1) + "x" + base.getMeshCacheKey(stack);
+            return (StorageProps.ModelItemsToStackSizeRatio > 0 ? slot.Itemstack.StackSize : 1) + "x" + base.getMeshCacheKey(slot);
         }
 
-        protected override MeshData getOrCreateMesh(ItemStack stack, int index)
-        {
-            if(stack.Class == EnumItemClass.Block)
+        protected new MeshData getOrCreateMesh(ItemSlot slot, int index)
+        {   
+            if(slot.Itemstack.Class == EnumItemClass.Block)
             {
-                MeshRefs[index] = capi.TesselatorManager.GetDefaultBlockMeshRef(stack.Block);
+                MeshRefs[index] = capi.TesselatorManager.GetDefaultBlockMeshRef(slot.Itemstack.Block);
             }
             // shingle/bricks are items but uses Stacking layout to get the mesh, so this should be not needed atm
-            else if(stack.Class == EnumItemClass.Item && StorageProps.Layout != EnumGroundStorageLayout.Stacking)
+            else if(slot.Itemstack.Class == EnumItemClass.Item && StorageProps.Layout != EnumGroundStorageLayout.Stacking)
             {
-                MeshRefs[index] = capi.TesselatorManager.GetDefaultItemMeshRef(stack.Item);
+                MeshRefs[index] = capi.TesselatorManager.GetDefaultItemMeshRef(slot.Itemstack.Item);
             }
             if (StorageProps.Layout == EnumGroundStorageLayout.Stacking)
             {
                 
-                var key = getMeshCacheKey(stack);
-                var mesh = getMesh(stack);
+                var key = getMeshCacheKey(slot);
+                var mesh = getMesh(slot);
 
                 if (mesh != null)
                 {
@@ -1497,15 +1513,15 @@ namespace ArtOfGrowing.BlockEntites
 
                 var loc = StorageProps.StackingModel.Clone().WithPathPrefixOnce("shapes/").WithPathAppendixOnce(".json");
                 nowTesselatingShape = Shape.TryGet(capi, loc);
-                nowTesselatingObj = stack.Collectible;
+                nowTesselatingObj = slot.Itemstack.Collectible;
 
                 if (nowTesselatingShape == null)
                 {
-                    capi.Logger.Error("Stacking model shape for collectible " + stack.Collectible.Code + " not found. Block will be invisible!");
+                    capi.Logger.Error("Stacking model shape for collectible " + slot.Itemstack.Collectible.Code + " not found. Block will be invisible!");
                     return null;
                 }
 
-                capi.Tesselator.TesselateShape("storagePile", nowTesselatingShape, out mesh, this, null, 0, 0, 0, (int)Math.Ceiling(StorageProps.ModelItemsToStackSizeRatio * stack.StackSize));
+                capi.Tesselator.TesselateShape("storagePile", nowTesselatingShape, out mesh, this, null, 0, 0, 0, (int)Math.Ceiling(StorageProps.ModelItemsToStackSizeRatio * slot.Itemstack.StackSize));
 
                 MeshCache[key] = mesh;
 
@@ -1515,10 +1531,10 @@ namespace ArtOfGrowing.BlockEntites
                 return mesh;
             }
 
-            var meshData = base.getOrCreateMesh(stack, index);
-            if (stack.Collectible.Attributes?[AttributeTransformCode].Exists == true)
+            var meshData = base.getOrCreateMesh(slot, index);
+            if (slot.Itemstack.Collectible.Attributes?[AttributeTransformCode].Exists == true)
             {
-                var transform = stack.Collectible.Attributes?[AttributeTransformCode].AsObject<ModelTransform>();
+                var transform = slot.Itemstack.Collectible.Attributes?[AttributeTransformCode].AsObject<ModelTransform>();
                 ModelTransformsRenderer[index] = transform;
             }
             else

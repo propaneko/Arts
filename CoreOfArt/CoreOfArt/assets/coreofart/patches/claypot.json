@@ -2,59 +2,43 @@
   {
     "op": "addmerge",
     "path": "/texturesByType/*/vegetable-reeds",
-    "value": {
-      "base": "block/food/meal/group18-reeds"
-    },
-    "file": "game:blocktypes/clay/pot.json",
+    "value": { "base": "block/food/meal/group18-reeds" },
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
     "path": "/texturesByType/*/compote",
-    "value": {
-      "base": "artofcooking:block/liquid/compote"
-    },
-    "file": "game:blocktypes/clay/pot.json",
+    "value": { "base": "artofcooking:block/liquid/compote" },
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedcattailroot",
-    "value": [
-      "vegetable",
-      "vegetable-reeds"
-    ],
-    "file": "game:blocktypes/clay/pot.json",
+    "value": [ "vegetable", "vegetable-reeds" ],
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedpapyrusroot",
-    "value": [
-      "vegetable",
-      "vegetable-reeds"
-    ],
-    "file": "game:blocktypes/clay/pot.json",
+    "value": [ "vegetable", "vegetable-reeds" ],
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/grain-pumpkin",
-    "value": [
-      "grain",
-      "vegetable-reeds"
-    ],
-    "file": "game:blocktypes/clay/pot.json",
+    "value": [ "grain", "vegetable-reeds" ],
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/compoteportion",
-    "value": [
-      "liquid",
-      "compote"
-    ],
-    "file": "game:blocktypes/clay/pot.json",
+    "value": [ "liquid", "compote" ],
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   }
 ]

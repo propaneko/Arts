@@ -13,8 +13,8 @@
 	"textures": {
 		"plain": "game:block/leather/plain",
 		"iron3": "game:block/metal/riveted/iron3",
-		"handle": "game:item/tool/material/handle",
-		"woodenclub": "game:item/tool/material/woodenclub"
+		"handle": "game:item/tool/handle",
+		"woodenclub": "game:block/wood/debarked/oak"
 	},
 	"elements": [
 		{

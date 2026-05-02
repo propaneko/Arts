@@ -1,10 +1,16 @@
 [
   {
     "op": "addmerge",
-    "path": "/attributesByType/claypot-cooked/textureMapping",
+    "path": "/textures/scallions",
+    "value": { "base": "block/wood/barrel/raw-scallions" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-blue-cooked/textureMapping",
     "value": {
       "vegetable-scallions": [ "vegetable", "scallions" ],
-
       "vegetable-wild-carrot": [ "vegetable", "group1" ],
       "vegetable-wild-parsnip": [ "vegetable", "group4" ],
       "vegetable-wild-turnip": [ "vegetable", "group5" ],
@@ -18,7 +24,6 @@
       "seeds-wild-soybean": [ "protein", "group9" ],
       "seeds-wild-peanut": [ "vegetable", "group12" ],
       "pickledlegume-wild-soybean": [ "vegetable", "group9" ],
-
       "vegetable-small-carrot": [ "vegetable", "group1" ],
       "vegetable-small-parsnip": [ "vegetable", "group4" ],
       "vegetable-small-turnip": [ "vegetable", "group5" ],
@@ -32,7 +37,6 @@
       "seeds-small-soybean": [ "protein", "group9" ],
       "seeds-small-peanut": [ "vegetable", "group12" ],
       "pickledlegume-small-soybean": [ "vegetable", "group9" ],
-
       "vegetable-medium-carrot": [ "vegetable", "group1" ],
       "vegetable-medium-parsnip": [ "vegetable", "group4" ],
       "vegetable-medium-turnip": [ "vegetable", "group5" ],
@@ -46,7 +50,6 @@
       "seeds-medium-soybean": [ "protein", "group9" ],
       "seeds-medium-peanut": [ "vegetable", "group12" ],
       "pickledlegume-medium-soybean": [ "vegetable", "group9" ],
-
       "vegetable-decent-carrot": [ "vegetable", "group1" ],
       "vegetable-decent-parsnip": [ "vegetable", "group4" ],
       "vegetable-decent-turnip": [ "vegetable", "group5" ],
@@ -60,7 +63,6 @@
       "seeds-decent-soybean": [ "protein", "group9" ],
       "seeds-decent-peanut": [ "vegetable", "group12" ],
       "pickledlegume-decent-soybean": [ "vegetable", "group9" ],
-
       "vegetable-large-carrot": [ "vegetable", "group1" ],
       "vegetable-large-parsnip": [ "vegetable", "group4" ],
       "vegetable-large-turnip": [ "vegetable", "group5" ],
@@ -74,7 +76,6 @@
       "seeds-large-soybean": [ "protein", "group9" ],
       "seeds-large-peanut": [ "vegetable", "group12" ],
       "pickledlegume-large-soybean": [ "vegetable", "group9" ],
-
       "vegetable-hefty-carrot": [ "vegetable", "group1" ],
       "vegetable-hefty-parsnip": [ "vegetable", "group4" ],
       "vegetable-hefty-turnip": [ "vegetable", "group5" ],
@@ -88,7 +89,6 @@
       "seeds-hefty-soybean": [ "protein", "group9" ],
       "seeds-hefty-peanut": [ "vegetable", "group12" ],
       "pickledlegume-hefty-soybean": [ "vegetable", "group9" ],
-
       "vegetable-gigantic-carrot": [ "vegetable", "group1" ],
       "vegetable-gigantic-parsnip": [ "vegetable", "group4" ],
       "vegetable-gigantic-turnip": [ "vegetable", "group5" ],
@@ -103,16 +103,70 @@
       "seeds-gigantic-peanut": [ "vegetable", "group12" ],
       "pickledlegume-gigantic-soybean": [ "vegetable", "group9" ]
     },
-    "file": "game:blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/texturesByType/*/scallions",
-    "value": {
-      "base": "block/wood/barrel/raw-scallions"
-    },
-    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-fire-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-black-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-brown-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-cream-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-earthyorange-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-gray-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-orange-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-red-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-tan-cooked/textureMapping",
+    "value": { "$ref": "#/1/value" },
+    "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   }
 ]

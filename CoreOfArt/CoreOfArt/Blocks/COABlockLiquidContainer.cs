@@ -26,7 +26,7 @@ namespace CoreOfArts.Blocks
                 {
                     foreach (var ingredient in recipe.Ingredients)
                     {
-                        if (ingredient.ResolvedItemstack.Id == GetContent(itemslot.Itemstack)?.Id)
+                        if (ingredient.ResolvedItemStack.Id == GetContent(itemslot.Itemstack)?.Id)
                         {
                             recipe.TryCraftNow(api, itemslot, byEntity, blockSel, entitySel, recipe);
                         }
@@ -66,7 +66,7 @@ namespace CoreOfArts.Blocks
                         {
                             foreach (var ingredient in recipe.Ingredients)
                             {
-                                if (ingredient.ResolvedItemstack.Id == GetContent(inSlot.Itemstack)?.Id)
+                                if (ingredient.ResolvedItemStack.Id == GetContent(inSlot.Itemstack)?.Id)
                                 {
                                     canMixing = true;
                                 }

@@ -45,7 +45,7 @@ namespace ArtOfGrowing.Items
                 return;
             }
 
-            AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+            AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("artofgrowing:haystorage")) as AOGBlockGroundStorage;
             if (blockgs == null) return;
 
             BlockEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position);
@@ -117,7 +117,7 @@ namespace ArtOfGrowing.Items
                         string useless = "";
                         if (!firepitBlock.CanPlaceBlock(world, byPlayer, new BlockSelection() { Position = onPos, Face = BlockFacing.UP }, ref useless)) return;
                         world.BlockAccessor.SetBlock(firepitBlock.BlockId, onPos);
-                        if (firepitBlock.Sounds != null) world.PlaySoundAt(firepitBlock.Sounds.Place, blockSel.Position.X, blockSel.Position.InternalY, blockSel.Position.Z, byPlayer);
+                        if (firepitBlock.Sounds != null) world.PlaySoundAt(firepitBlock.Sounds.Place.Location, blockSel.Position.X, blockSel.Position.InternalY, blockSel.Position.Z);
                         itemslot.Itemstack.StackSize--;
 
                     }
@@ -144,7 +144,7 @@ namespace ArtOfGrowing.Items
 
                 world.BlockAccessor.SetBlock(firepitBlock.BlockId, onPos);
 
-                if (firepitBlock.Sounds != null) world.PlaySoundAt(firepitBlock.Sounds.Place, blockSel.Position.X, blockSel.Position.InternalY, blockSel.Position.Z, byPlayer);
+                if (firepitBlock.Sounds != null) world.PlaySoundAt(firepitBlock.Sounds.Place.Location, blockSel.Position.X, blockSel.Position.InternalY, blockSel.Position.Z);
 
                 itemslot.Itemstack.StackSize--;
                 handHandling = EnumHandHandling.PreventDefaultAction;

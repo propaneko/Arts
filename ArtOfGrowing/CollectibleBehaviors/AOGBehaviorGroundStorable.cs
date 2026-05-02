@@ -110,6 +110,10 @@ namespace ArtOfGrowing
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling, ref EnumHandling handling)
         {
             Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+            if (handHandling == EnumHandHandling.PreventDefault) // to fix dumb vanilla grass placement
+            {
+                handling = EnumHandling.PreventDefault;
+            }
         }
 
 
@@ -147,9 +151,8 @@ namespace ArtOfGrowing
                 return;
             }
 
-            AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+            AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("artofgrowing:haystorage")) as AOGBlockGroundStorage;
             if (blockgs == null) return;
-
             BlockEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position);
             BlockEntity beAbove = world.BlockAccessor.GetBlockEntity(blockSel.Position.UpCopy());
             if (be is AOGBlockEntityGroundStorage || beAbove is AOGBlockEntityGroundStorage)

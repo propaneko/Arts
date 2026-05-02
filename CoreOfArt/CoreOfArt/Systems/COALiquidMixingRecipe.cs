@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System;
 using Vintagestory.API;
 using Vintagestory.API.Common;
 using Vintagestory.API.Util;
@@ -34,7 +35,8 @@ namespace CoreOfArts.Systems
     ///  }
     ///}</code></example>
     [DocumentAsJson]
-    public class COALiquidMixingRecipe : IByteSerializable, IRecipeBase<COALiquidMixingRecipe>
+
+    public class COALiquidMixingRecipe : IByteSerializable, IRecipeBase, ICloneable, ICOARecipe
     {
         /// <summary>
         /// <!--<jsonoptional>Obsolete</jsonoptional>-->
@@ -73,8 +75,22 @@ namespace CoreOfArts.Systems
         [DocumentAsJson] public string Code;
 
 
-        IRecipeIngredient[] IRecipeBase<COALiquidMixingRecipe>.Ingredients => Ingredients;
-        IRecipeOutput IRecipeBase<COALiquidMixingRecipe>.Output => Output;
+        IEnumerable<IRecipeIngredient> IRecipeBase.RecipeIngredients => Ingredients;
+        IRecipeOutput IRecipeBase.RecipeOutput => Output;
+
+        // 1.22
+        int IRecipeBase.RecipeId { get => RecipeId; set => RecipeId = value; }
+        public bool AverageDurability { get; set; } = true;
+        public string RequiresTrait { get; set; }
+        public bool ShowInCreatedBy { get; set; } = true;
+        public void OnParsed(IWorldAccessor world) { }
+        public IEnumerable<IRecipeBase> GenerateRecipesForAllIngredientCombinations(IWorldAccessor world)
+            => new[] { (IRecipeBase)this };
+
+        IRecipeIngredient[] ICOARecipe.Ingredients => Ingredients;
+        IRecipeOutput ICOARecipe.Output => Output;
+        object ICloneable.Clone() => Clone();
+        ICOARecipe ICOARecipe.Clone() => Clone();
 
         public bool TryCraftNow(ICoreAPI api, ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, COALiquidMixingRecipe recipe)
         {
@@ -87,8 +103,8 @@ namespace CoreOfArts.Systems
             if (recipe != null)
             {
                 if (block == null) return false;
-                bool sourceIsFirst = sourceStack == recipe.Ingredients[0].ResolvedItemstack;
-                ItemStack inputStack = recipe.Ingredients[sourceIsFirst ? 1 : 0].ResolvedItemstack;
+                bool sourceIsFirst = sourceStack == recipe.Ingredients[0].ResolvedItemStack;
+                ItemStack inputStack = recipe.Ingredients[sourceIsFirst ? 1 : 0].ResolvedItemStack;
                 ItemStack outputStack = new ItemStack(byEntity.World.GetItem(new AssetLocation(recipe.Output.Code)), 99999);
                 
                 float sourceLitres = recipe.Ingredients[sourceIsFirst ? 0 : 1].Litres;
@@ -270,7 +286,7 @@ namespace CoreOfArts.Systems
 
                 if (iOk)
                 {
-                    var lprops = BlockLiquidContainerBase.GetContainableProps(ingred.ResolvedItemstack);
+                    var lprops = BlockLiquidContainerBase.GetContainableProps(ingred.ResolvedItemStack);
                     if (lprops != null)
                     {
                         if (ingred.Litres < 0)
@@ -297,7 +313,7 @@ namespace CoreOfArts.Systems
 
             if (ok)
             {
-                var lprops = BlockLiquidContainerBase.GetContainableProps(Output.ResolvedItemstack);
+                var lprops = BlockLiquidContainerBase.GetContainableProps(Output.ResolvedItemStack);
                 if (lprops != null)
                 {
                     if (Output.Litres < 0)
