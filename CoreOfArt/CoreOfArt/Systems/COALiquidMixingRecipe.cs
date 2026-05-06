@@ -320,7 +320,7 @@ namespace CoreOfArts.Systems
         }
 
 
-        public COALiquidMixingRecipe Clone()
+                public COALiquidMixingRecipe Clone()
         {
             BarrelRecipeIngredient[] ingredients = new BarrelRecipeIngredient[Ingredients.Length];
             for (int i = 0; i < Ingredients.Length; i++)
@@ -338,7 +338,8 @@ namespace CoreOfArts.Systems
                 Ingredients = ingredients
             };
         }
-                public void OnParsed(IWorldAccessor world)
+
+        public void OnParsed(IWorldAccessor world)
         {
         }
 
@@ -356,5 +357,6 @@ namespace CoreOfArts.Systems
         {
             return Clone();
         }
-    
+
+    }
 }
