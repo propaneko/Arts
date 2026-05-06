@@ -34,7 +34,7 @@ namespace CoreOfArts.Systems
     ///  }
     ///}</code></example>
     [DocumentAsJson]
-    public class COALiquidMixingRecipe : IByteSerializable, IRecipeBase<COALiquidMixingRecipe>
+    public class COALiquidMixingRecipe : IByteSerializable, IRecipeBase
     {
         /// <summary>
         /// <!--<jsonoptional>Obsolete</jsonoptional>-->
