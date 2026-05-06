@@ -1,11 +1,12 @@
-﻿using Vintagestory.API.Common;
+﻿using System.IO;
+using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
 namespace CoreOfArts.Systems
 {
-    public class COADoughFormingRecipe : LayeredVoxelRecipe<COADoughFormingRecipe>, IByteSerializable
+    public class COADoughFormingRecipe : LayeredVoxelRecipe, IByteSerializable
     {
         public override int QuantityLayers => 16;
         public override string RecipeCategoryCode => "dough forming";
@@ -32,5 +33,14 @@ namespace CoreOfArts.Systems
             return recipe;
         }
 
+        public void ToBytes(BinaryWriter writer)
+        {
+            base.ToBytes(writer);
+        }
+
+        public void FromBytes(BinaryReader reader, IWorldAccessor resolver)
+        {
+            base.FromBytes(reader, resolver);
+        }
     }
 }
