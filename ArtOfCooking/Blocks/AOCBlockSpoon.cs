@@ -139,13 +139,13 @@ namespace ArtOfCooking.Blocks
                     {
                         if (stacks[i] != null && stacks[i].StackSize > 0 && stacks[i].Collectible.Code.Path == "rot")
                         {
-                            world.SpawnItemEntity(stacks[i], entityItem.ServerPos.XYZ);
+                            world.SpawnItemEntity(stacks[i], entityItem.Pos.XYZ);
                         }
                     }
                 } else
                 {
                     ItemStack rndStack = stacks[world.Rand.Next(stacks.Length)];
-                    world.SpawnCubeParticles(entityItem.ServerPos.XYZ, rndStack, 0.3f, 25, 1, null);
+                    world.SpawnCubeParticles(entityItem.Pos.XYZ, rndStack, 0.3f, 25, 1, null);
                 }
 
                 var eatenBlock = Attributes["eatenBlock"].AsString();
