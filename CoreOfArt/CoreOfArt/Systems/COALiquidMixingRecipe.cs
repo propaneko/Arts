@@ -88,8 +88,8 @@ namespace CoreOfArts.Systems
             if (recipe != null)
             {
                 if (block == null) return false;
-                bool sourceIsFirst = sourceStack == recipe.Ingredients[0].ResolvedItemstack;
-                ItemStack inputStack = recipe.Ingredients[sourceIsFirst ? 1 : 0].ResolvedItemstack;
+                bool sourceIsFirst = sourceStack == recipe.Ingredients[0].ResolvedItemStack;
+                ItemStack inputStack = recipe.Ingredients[sourceIsFirst ? 1 : 0].ResolvedItemStack;
                 ItemStack outputStack = new ItemStack(byEntity.World.GetItem(new AssetLocation(recipe.Output.Code)), 99999);
                 
                 float sourceLitres = recipe.Ingredients[sourceIsFirst ? 0 : 1].Litres;
@@ -271,7 +271,7 @@ namespace CoreOfArts.Systems
 
                 if (iOk)
                 {
-                    var lprops = BlockLiquidContainerBase.GetContainableProps(ingred.ResolvedItemstack);
+                    var lprops = BlockLiquidContainerBase.GetContainableProps(ingred.ResolvedItemStack);
                     if (lprops != null)
                     {
                         if (ingred.Litres < 0)
