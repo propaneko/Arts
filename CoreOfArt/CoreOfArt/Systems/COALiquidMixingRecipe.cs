@@ -298,7 +298,7 @@ namespace CoreOfArts.Systems
 
             if (ok)
             {
-                var lprops = BlockLiquidContainerBase.GetContainableProps(Output.ResolvedItemstack);
+                var lprops = BlockLiquidContainerBase.GetContainableProps(Output.ResolvedItemStack);
                 if (lprops != null)
                 {
                     if (Output.Litres < 0)
