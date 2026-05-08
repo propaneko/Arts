@@ -114,19 +114,19 @@
   },
   {
     "op": "replace",
-    "path": "/2/ingredientPattern",
+    "path": "/17/ingredientPattern",
     "value": "_B_,BRB",
-    "file": "game:recipes/grid/clothes/hat.json",
+    "file": "game:recipes/grid/clothes/head.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/2/ingredients/R",
+    "path": "/17/ingredients/R",
     "value": {
-      "type": "item",
-      "code": "game:rope"
+        "type": "item",
+        "code": "game:rope"
     },
-    "file": "game:recipes/grid/clothes/hat.json",
+    "file": "game:recipes/grid/clothes/head.json",
     "side": "Server"
   },
   {
