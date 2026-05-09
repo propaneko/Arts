@@ -1,12 +1,12 @@
 {
   "type": "code",
-  "modid": "coreofartspatch",
+  "modid": "coreofartsrevival",
   "name": "Core of Arts",
   "authors": [
     "Fedarmens"
   ],
   "description": "The main mod-library for other mods of the Arts series.",
-  "version": "1.0.5",
+  "version": "1.0.1",
   "dependencies": {
     "game": ""
   }

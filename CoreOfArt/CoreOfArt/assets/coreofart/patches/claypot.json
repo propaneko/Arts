@@ -1,43 +1,55 @@
 [
   {
     "op": "addmerge",
-    "path": "/texturesByType/*/vegetable-reeds",
+    "path": "/textures/vegetable-reeds",
     "value": { "base": "block/food/meal/group18-reeds" },
     "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/texturesByType/*/compote",
+    "path": "/textures/compote",
     "value": { "base": "artofcooking:block/liquid/compote" },
     "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedcattailroot",
+    "path": "/attributesByType/claypot-blue-cooked/textureMapping/vegetable-cookedcattailroot",
     "value": [ "vegetable", "vegetable-reeds" ],
     "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedpapyrusroot",
+    "path": "/attributesByType/claypot-blue-cooked/textureMapping/vegetable-cookedpapyrusroot",
     "value": [ "vegetable", "vegetable-reeds" ],
     "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/attributesByType/claypot-cooked/textureMapping/grain-pumpkin",
+    "path": "/attributesByType/claypot-blue-cooked/textureMapping/grain-pumpkin",
     "value": [ "grain", "vegetable-reeds" ],
     "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/attributesByType/claypot-cooked/textureMapping/compoteportion",
+    "path": "/attributesByType/claypot-blue-cooked/textureMapping/compoteportion",
     "value": [ "liquid", "compote" ],
+    "file": "game:blocktypes/clay/fired/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributesByType/*-cooked/textureMapping",
+    "value": {
+        "vegetable-cookedcattailroot": [ "vegetable", "vegetable-reeds" ],
+        "vegetable-cookedpapyrusroot": [ "vegetable", "vegetable-reeds" ],
+        "grain-pumpkin": [ "grain", "vegetable-reeds" ],
+        "compoteportion": [ "liquid", "compote" ]
+    },
     "file": "game:blocktypes/clay/fired/pot.json",
     "side": "Server"
   }
