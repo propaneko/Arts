@@ -10,7 +10,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-wild-*",
+				"code": "pickledlegume-wild-*",
 				"quantity": 5,
 				
 				"name": "type"
@@ -36,7 +36,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-small-*",
+				"code": "pickledlegume-small-*",
 				"quantity": 5,
 				
 				"name": "type"
@@ -62,7 +62,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-medium-*",
+				"code": "pickledlegume-medium-*",
 				"quantity": 5,
 				
 				"name": "type"
@@ -88,7 +88,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-decent-*",
+				"code": "pickledlegume-decent-*",
 				"quantity": 5,
 				
 				"name": "type"
@@ -114,7 +114,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-large-*",
+				"code": "pickledlegume-large-*",
 				"quantity": 1,
 				
 				"name": "type"
@@ -140,7 +140,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-hefty-*",
+				"code": "pickledlegume-hefty-*",
 				"quantity": 2,
 				
 				"name": "type"
@@ -166,7 +166,7 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-gigantic-*",
+				"code": "pickledlegume-gigantic-*",
 				"quantity": 1,
 				
 				"name": "type"
