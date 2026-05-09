@@ -10,14 +10,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-wild-*",
+				"code": "pickledlegume-wild-*",
 				"quantity": 3,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-small-*",
+				"code": "pickledlegume-small-*",
 				"quantity": 1,
 				
 				"name": "type"
@@ -43,14 +43,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-wild-*",
+				"code": "pickledlegume-wild-*",
 				"quantity": 1,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-small-*",
+				"code": "pickledlegume-small-*",
 				"quantity": 2,
 				
 				"name": "type"
@@ -76,14 +76,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-wild-*",
+				"code": "pickledlegume-wild-*",
 				"quantity": 2,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-medium-*",
+				"code": "pickledlegume-medium-*",
 				"quantity": 1,
 				
 				"name": "type"
@@ -109,14 +109,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-wild-*",
+				"code": "pickledlegume-wild-*",
 				"quantity": 1,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-decent-*",
+				"code": "pickledlegume-decent-*",
 				"quantity": 1,
 				
 				"name": "type"
@@ -142,14 +142,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-small-*",
+				"code": "pickledlegume-small-*",
 				"quantity": 1,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-medium-*",
+				"code": "pickledlegume-medium-*",
 				"quantity": 1,
 				
 				"name": "type"
@@ -175,14 +175,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-small-*",
+				"code": "pickledlegume-small-*",
 				"quantity": 3,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-decent-*",
+				"code": "pickledlegume-decent-*",
 				"quantity": 1,
 				
 				"name": "type"
@@ -208,14 +208,14 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "pickledpickledlegume-medium-*",
+				"code": "pickledlegume-medium-*",
 				"quantity": 2,
 				
 				"name": "type"
 			},
 			"M": {
 				"type": "item",
-				"code": "pickledpickledlegume-decent-*",
+				"code": "pickledlegume-decent-*",
 				"quantity": 1,
 				
 				"name": "type"
