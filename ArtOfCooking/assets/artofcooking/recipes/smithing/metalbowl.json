@@ -20,10 +20,11 @@
 			"#___#",
 			"#####"
 		]
-	],
-	"name": "metalbowl",
-	"output": {
-		"type": "block",
-		"code": "metalbowl-{metal}-empty"
-	}
+	      ],
+      "code": "metalbowl-{metal}-empty",
+      "name": "metalbowl",
+      "output": {
+              "type": "block",
+              "code": "metalbowl-{metal}-empty"
+      }
 }
