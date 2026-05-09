@@ -42,7 +42,8 @@ namespace CoreOfArts.Systems
         /// <!--<jsonoptional>Obsolete</jsonoptional>-->
         /// Unused. Defines an ID for the recipe.
         /// </summary>
-        [DocumentAsJson] public int RecipeId { get; set; }
+        [DocumentAsJson] public int RecipeId;
+
         /// <summary>
         /// <!--<jsonoptional>Required</jsonoptional>-->
         /// Defines the set of ingredients used inside the barrel. Barrels can have a maximum of one item and one liquid ingredient.
@@ -66,9 +67,7 @@ namespace CoreOfArts.Systems
         /// Should this recipe be loaded by the recipe loader?
         /// </summary>
         [DocumentAsJson] public bool Enabled { get; set; } = true;
-        [DocumentAsJson] public bool AverageDurability { get; set; } = true;
-        [DocumentAsJson] public string RequiresTrait { get; set; } = null;
-        [DocumentAsJson] public bool ShowInCreatedBy { get; set; } = true;
+
         /// <summary>
         /// <!--<jsonoptional>Required</jsonoptional>-->
         /// A code for this recipe, used to create an entry in the handbook.
@@ -97,30 +96,30 @@ namespace CoreOfArts.Systems
         {
             BlockLiquidContainerBase baseBlock = itemslot.Itemstack.Block as BlockLiquidContainerBase;
             IPlayer byPlayer = (byEntity as EntityPlayer)?.Player;
-            
+
             ItemStack sourceStack = baseBlock.GetContent(itemslot.Itemstack);
             Block block = byEntity.World.BlockAccessor.GetBlock(blockSel.Position);
-            
+
             if (recipe != null)
             {
                 if (block == null) return false;
                 bool sourceIsFirst = sourceStack == recipe.Ingredients[0].ResolvedItemStack;
                 ItemStack inputStack = recipe.Ingredients[sourceIsFirst ? 1 : 0].ResolvedItemStack;
                 ItemStack outputStack = new ItemStack(byEntity.World.GetItem(new AssetLocation(recipe.Output.Code)), 99999);
-                
+
                 float sourceLitres = recipe.Ingredients[sourceIsFirst ? 0 : 1].Litres;
                 float inputLitres = recipe.Ingredients[sourceIsFirst ? 1 : 0].Litres;
                 float outputLitres = sourceLitres + inputLitres;
-                
+
                 if (sourceLitres == 0 || inputLitres == 0 || outputLitres == 0) return false;
-                
+
                 if (block is BlockLiquidContainerBase blcto)
                 {
                     if (blcto.GetContent(blockSel.Position)?.Id == inputStack?.Id)
                     {
                         float coef = blcto.GetCurrentLitres(blockSel.Position) / inputLitres;
                         if (coef >= 1)
-                        { 
+                        {
                             if (coef != 1)
                             {
                                 sourceLitres *= coef;
@@ -141,7 +140,7 @@ namespace CoreOfArts.Systems
                     if (beg != null)
                     {
                         ItemSlot crackIntoSlot = beg.GetSlotAt(blockSel);
-                        
+
                         if (crackIntoSlot?.Itemstack?.Block is BlockLiquidContainerBase bowl)
                         {
                             if (bowl.GetContent(crackIntoSlot?.Itemstack)?.Id == inputStack?.Id)
@@ -166,7 +165,7 @@ namespace CoreOfArts.Systems
 
                         }
                     }
-                } 
+                }
             }
 
             return false;
@@ -267,7 +266,7 @@ namespace CoreOfArts.Systems
                     }
                 }
 
-                mappings[ingred.Name ?? "wildcard"+mappings.Count] = codes.ToArray();
+                mappings[ingred.Name ?? "wildcard" + mappings.Count] = codes.ToArray();
             }
 
             return mappings;
@@ -297,8 +296,9 @@ namespace CoreOfArts.Systems
                                 world.Logger.Warning("Liquid Mixed recipe {0}, ingredient {1} does not define a litres attribute but a quantity, will assume quantity=litres for backwards compatibility.", sourceForErrorLogging, ingred.Code);
                                 ingred.Litres = ingred.Quantity;
                                 ingred.ConsumeLitres = ingred.ConsumeQuantity;
-                            } else ingred.Litres = 1;
-                            
+                            }
+                            else ingred.Litres = 1;
+
                         }
 
                         ingred.Quantity = (int)(lprops.ItemsPerLitre * ingred.Litres);
@@ -336,7 +336,7 @@ namespace CoreOfArts.Systems
         }
 
 
-                public COALiquidMixingRecipe Clone()
+        public COALiquidMixingRecipe Clone()
         {
             BarrelRecipeIngredient[] ingredients = new BarrelRecipeIngredient[Ingredients.Length];
             for (int i = 0; i < Ingredients.Length; i++)
@@ -355,24 +355,6 @@ namespace CoreOfArts.Systems
             };
         }
 
-        public void OnParsed(IWorldAccessor world)
-        {
-        }
-
-        public IEnumerable<IRecipeBase> GenerateRecipesForAllIngredientCombinations(IWorldAccessor world)
-        {
-            yield return this;
-        }
-
-        public IRecipeBase CloneAsInterface()
-        {
-            return Clone();
-        }
-
-        object System.ICloneable.Clone()
-        {
-            return Clone();
-        }
-
     }
+
 }

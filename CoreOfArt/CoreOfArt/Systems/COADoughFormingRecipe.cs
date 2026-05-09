@@ -66,5 +66,27 @@ namespace CoreOfArts.Systems
             : Array.Empty<IRecipeIngredient>();
         IRecipeOutput ICOARecipe.Output => RecipeOutput;
         ICOARecipe ICOARecipe.Clone() => (COADoughFormingRecipe)Clone();
+
+        public bool[,,] Voxels
+        {
+            get
+            {
+                bool[,,] voxels = new bool[16, 16, 16];
+                if (Pattern == null) return voxels;
+                for (int y = 0; y < Pattern.Length; y++)
+                {
+                    string[] rows = Pattern[y];
+                    for (int z = 0; z < rows.Length; z++)
+                    {
+                        string row = rows[z];
+                        for (int x = 0; x < row.Length; x++)
+                        {
+                            voxels[x, y, z] = row[x] != '_';
+                        }
+                    }
+                }
+                return voxels;
+            }
+        }
     }
 }
