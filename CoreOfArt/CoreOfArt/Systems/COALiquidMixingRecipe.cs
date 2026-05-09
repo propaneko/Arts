@@ -42,8 +42,7 @@ namespace CoreOfArts.Systems
         /// <!--<jsonoptional>Obsolete</jsonoptional>-->
         /// Unused. Defines an ID for the recipe.
         /// </summary>
-        [DocumentAsJson] public int RecipeId;
-
+        [DocumentAsJson] public int RecipeId { get; set; }
         /// <summary>
         /// <!--<jsonoptional>Required</jsonoptional>-->
         /// Defines the set of ingredients used inside the barrel. Barrels can have a maximum of one item and one liquid ingredient.
@@ -67,7 +66,9 @@ namespace CoreOfArts.Systems
         /// Should this recipe be loaded by the recipe loader?
         /// </summary>
         [DocumentAsJson] public bool Enabled { get; set; } = true;
-
+        [DocumentAsJson] public bool AverageDurability { get; set; } = true;
+        [DocumentAsJson] public string RequiresTrait { get; set; } = null;
+        [DocumentAsJson] public bool ShowInCreatedBy { get; set; } = true;
         /// <summary>
         /// <!--<jsonoptional>Required</jsonoptional>-->
         /// A code for this recipe, used to create an entry in the handbook.
@@ -335,7 +336,7 @@ namespace CoreOfArts.Systems
         }
 
 
-        public COALiquidMixingRecipe Clone()
+                public COALiquidMixingRecipe Clone()
         {
             BarrelRecipeIngredient[] ingredients = new BarrelRecipeIngredient[Ingredients.Length];
             for (int i = 0; i < Ingredients.Length; i++)
@@ -354,6 +355,24 @@ namespace CoreOfArts.Systems
             };
         }
 
+        public void OnParsed(IWorldAccessor world)
+        {
+        }
+
+        public IEnumerable<IRecipeBase> GenerateRecipesForAllIngredientCombinations(IWorldAccessor world)
+        {
+            yield return this;
+        }
+
+        public IRecipeBase CloneAsInterface()
+        {
+            return Clone();
+        }
+
+        object System.ICloneable.Clone()
+        {
+            return Clone();
+        }
+
     }
-    
 }

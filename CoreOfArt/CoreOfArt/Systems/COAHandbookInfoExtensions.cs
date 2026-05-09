@@ -335,7 +335,6 @@ namespace CoreOfArts.Systems
 
             if (recipestacks.Count > 0)
             {
-                int firstIndent = 2;
                 components.Add(new ClearFloatTextComponent(capi, 14));
 
                 var bullet = new RichTextComponent(capi, Lang.Get("Ingredient for") + "\n", CairoFont.WhiteSmallText().WithWeight(FontWeight.Bold));

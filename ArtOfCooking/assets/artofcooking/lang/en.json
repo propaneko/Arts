@@ -515,6 +515,11 @@
     "game:meal-hearty-aoccompote": "Hearty compote {0}",
     "game:meal-hefty-aoccompote": "Hefty compote {0}",
 
+    "game:mealrecipe-name-aocscrambledeggs": "omelette",
+    "game:mealrecipe-name-aocscrambledeggs-in-container": "omelette",
+    "game:mealrecipe-name-aoccompote": "compote",
+    "game:mealrecipe-name-aoccompote-in-container": "compote",
+
     "game:meal-recipe-aocscrambledeggs": "• <a href=\"handbook:\/\/artsguides-newmeals\">Omelette<\/a>",
     "game:meal-recipe-aoccompote": "• <a href=\"handbook:\/\/artsguides-newmeals\">Compote<\/a>",
 

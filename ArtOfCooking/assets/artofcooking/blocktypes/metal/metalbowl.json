@@ -39,7 +39,8 @@
 		"*": {
 			"shelvable": true,
 			"handbook": {
-				"extraSectionsByType": {
+  "ignoreCreativeInvStacks": true,
+  "extraSectionsByType": {
 					"*": [
 						{
 							"title": "artofcooking:block-handbooktitle-metalbowl",

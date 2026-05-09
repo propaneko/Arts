@@ -127,9 +127,9 @@ namespace ArtOfGrowing.Items
             return true;
         }     
 
-        OrderedDictionaryBP GetNearblyMultibreakables(IWorldAccessor world, BlockPos pos, Vec3d hitPos)
+        Vintagestory.API.Datastructures.OrderedDictionary<BlockPos, float> GetNearblyMultibreakables(IWorldAccessor world, BlockPos pos, Vec3d hitPos)
         {
-            OrderedDictionaryBP positions = new OrderedDictionaryBP();
+            Vintagestory.API.Datastructures.OrderedDictionary<BlockPos, float> positions = new OrderedDictionary<BlockPos, float>();
             
             for (int dx = -1; dx <= 1; dx++)
             {

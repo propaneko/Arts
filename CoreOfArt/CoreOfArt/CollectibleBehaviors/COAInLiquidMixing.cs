@@ -314,7 +314,7 @@ namespace CoreOfArts.CollectibleBehaviors
                             if (byEntity is EntityPlayer) byPlayer = byEntity.World.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
                             if (byPlayer?.InventoryManager.TryGiveItemstack(outputStack) == false)
                             {
-                                byEntity.World.SpawnItemEntity(outputStack, byEntity.SidedPos.XYZ);
+                                byEntity.World.SpawnItemEntity(outputStack, byEntity.Pos.XYZ);
                             }
                         }                        
                     }
