@@ -1,41 +1,55 @@
 [
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/crop.json",
     "op": "addmerge",
     "path": "/4/blockCodes/-",
     "value": "crop-carrot-11"
   },
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/crop.json",
     "op": "addmerge",
     "path": "/5/blockCodes/-",
     "value": "crop-onion-11"
   },
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/crop.json",
     "op": "addmerge",
     "path": "/6/blockCodes/-",
     "value": "crop-parsnip-11"
   },
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/crop.json",
     "op": "addmerge",
     "path": "/7/blockCodes/-",
     "value": "crop-turnip-8"
   },
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/crop.json",
     "op": "addmerge",
     "path": "/13/blockCodes/-",
     "value": "crop-sunflower-12"
   },
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/crop.json",
     "op": "addmerge",
     "path": "/-",
     "value": {
       "comment": "Small patches of cabbage",
-      "blockCodes": [ "crop-cabbage-4", "crop-cabbage-6", "crop-cabbage-9", "crop-cabbage-13", "crop-cabbage-15", "crop-cabbage-16", "crop-cabbage-16" ],
+      "blockCodes": [
+        "crop-cabbage-4",
+        "crop-cabbage-6",
+        "crop-cabbage-9",
+        "crop-cabbage-13",
+        "crop-cabbage-15",
+        "crop-cabbage-16",
+        "crop-cabbage-16"
+      ],
       "minTemp": 1,
       "maxTemp": 26,
       "minRain": 0.38,
@@ -49,12 +63,20 @@
     }
   },
   {
+    "side": "Server",
     "file": "game:worldgen/blockpatches/grass.json",
     "op": "addmerge",
     "path": "/-",
     "value": {
       "comment": "Small patches of drygrass",
-      "blockCodes": [ "artofgrowing:talldrygrass-veryshort-free", "artofgrowing:talldrygrass-short-free", "artofgrowing:talldrygrass-mediumshort-free", "artofgrowing:talldrygrass-medium-free", "artofgrowing:talldrygrass-tall-free", "artofgrowing:talldrygrass-verytall-free" ],
+      "blockCodes": [
+        "artofgrowing:talldrygrass-veryshort-free",
+        "artofgrowing:talldrygrass-short-free",
+        "artofgrowing:talldrygrass-mediumshort-free",
+        "artofgrowing:talldrygrass-medium-free",
+        "artofgrowing:talldrygrass-tall-free",
+        "artofgrowing:talldrygrass-verytall-free"
+      ],
       "quantity": {
         "avg": 10,
         "var": 10
