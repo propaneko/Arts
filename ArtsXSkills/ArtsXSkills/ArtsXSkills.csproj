@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="ArtOfGrowing">
-      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing\ArtOfGrowing.dll</HintPath>
-		<Private>false</Private>
-    </Reference>
-    <Reference Include="CoreOfArts">
-      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
-		<Private>false</Private>
-    </Reference>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
       <Private>false</Private>
