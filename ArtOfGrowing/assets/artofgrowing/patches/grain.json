@@ -2,7 +2,7 @@
   {
     "op": "replace",
     "path": "/variantgroups/0/states",
-    "value": [ "carrot", "onion", "turnip", "parsnip", "soybean", "cabbage", "pineapple", "cassava", "peanut", "bellpepper" ],
+    "value": [ "carrot", "onion", "turnip", "parsnip", "soybean", "cabbage", "pineapple", "cassava", "peanut", "bellpepper", "fennel", "licorice" ],
     "file": "game:itemtypes/resource/seeds.json",
     "side": "Server"
   },
