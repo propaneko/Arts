@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Vintagestory.API.Common;
 using Vintagestory.API.Util;
 using Vintagestory.API.Config;
@@ -25,12 +26,82 @@ namespace CoreOfArts.Systems
         public override IRecipeOutput RecipeOutput => Output;
 
         public override bool Resolve(IWorldAccessor world, string sourceForErrorLogging)
-        {
-            if (Ingredient != null)
-                return Ingredient.Resolve(world, sourceForErrorLogging);
-            return false;
-        }
+{
+    bool ok = true;
 
+    if (Ingredient != null)
+    {
+        ok &= Ingredient.Resolve(world, sourceForErrorLogging);
+    }
+    else
+    {
+        ok = false;
+    }
+
+    if (Output != null)
+    {
+        ok &= Output.Resolve(world, sourceForErrorLogging);
+    }
+    else
+    {
+        ok = false;
+    }
+
+    return ok;
+}
+public Dictionary<string, string[]> GetNameToCodeMapping(IWorldAccessor world)
+{
+    Dictionary<string, string[]> mappings = new Dictionary<string, string[]>();
+
+    if (Ingredient?.Code == null || Ingredient.Name == null || !Ingredient.Code.Path.Contains("*"))
+    {
+        return mappings;
+    }
+
+    List<string> codes = new List<string>();
+
+    int wildcardStartLen = Ingredient.Code.Path.IndexOf("*");
+    int wildcardEndLen = Ingredient.Code.Path.Length - wildcardStartLen - 1;
+
+    if (Ingredient.Type == EnumItemClass.Block)
+    {
+        foreach (Block block in world.Blocks)
+        {
+            if (block.Code == null || block.IsMissing) continue;
+
+            if (WildcardUtil.Match(Ingredient.Code, block.Code))
+            {
+                string code = block.Code.Path.Substring(wildcardStartLen);
+                string codepart = code.Substring(0, code.Length - wildcardEndLen);
+
+                if (Ingredient.AllowedVariants != null && !Ingredient.AllowedVariants.Contains(codepart)) continue;
+
+                codes.Add(codepart);
+            }
+        }
+    }
+    else
+    {
+        foreach (Item item in world.Items)
+        {
+            if (item.Code == null || item.IsMissing) continue;
+
+            if (WildcardUtil.Match(Ingredient.Code, item.Code))
+            {
+                string code = item.Code.Path.Substring(wildcardStartLen);
+                string codepart = code.Substring(0, code.Length - wildcardEndLen);
+
+                if (Ingredient.AllowedVariants != null && !Ingredient.AllowedVariants.Contains(codepart)) continue;
+
+                codes.Add(codepart);
+            }
+        }
+    }
+
+    mappings[Ingredient.Name] = codes.ToArray();
+
+    return mappings;
+}
         public override RecipeBase Clone()
         {
             COADoughFormingRecipe recipe = new COADoughFormingRecipe();
