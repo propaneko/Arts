@@ -46,10 +46,25 @@ namespace CoreOfArts.Systems
         }
 
         public override void ToBytes(BinaryWriter writer)
+{
+    Ingredient.ToBytes(writer);
+
+    if (Output?.ResolvedItemstack != null)
+    {
+        JsonItemStack resolvedOutput = new JsonItemStack()
         {
-            Ingredient.ToBytes(writer);
-            Output.ToBytes(writer);
-        }
+            Type = Output.ResolvedItemstack.Class,
+            Code = Output.ResolvedItemstack.Collectible.Code,
+            StackSize = Output.ResolvedItemstack.StackSize
+        };
+
+        resolvedOutput.ToBytes(writer);
+    }
+    else
+    {
+        Output.ToBytes(writer);
+    }
+}
 
         public override void FromBytes(BinaryReader reader, IWorldAccessor resolver)
         {
