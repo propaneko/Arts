@@ -49,7 +49,7 @@ namespace CoreOfArts.Systems
 
     return ok;
 }
-public override Dictionary<string, string[]> GetNameToCodeMapping(IWorldAccessor world)
+protected override Dictionary<string, string[]> GetNameToCodeMapping(IWorldAccessor world)
 {
     Dictionary<string, string[]> mappings = new Dictionary<string, string[]>();
 
