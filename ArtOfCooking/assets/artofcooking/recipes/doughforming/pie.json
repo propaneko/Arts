@@ -2,7 +2,8 @@
 	"ingredient": {
 		"type": "item",
 		"code": "doughpiece-unleavened-*",
-		"name": "type"
+		"name": "type",
+		"allowedVariants": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
 	},
 	"pattern": [
 		[
