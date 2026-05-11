@@ -1,12 +1,12 @@
 {
   "type": "code",
-  "modid": "artofcookingrevival",
+  "modid": "artofcookingpatch",
   "name": "Art of Cooking Revival",
   "authors": [
     "Fedarmens"
   ],
   "description": "Bronze kitchen appliances. Kneading dough and shawarma.",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "dependencies": {
     "game": "",
     "coreofartsrevival": ""
