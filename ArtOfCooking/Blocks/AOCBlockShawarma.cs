@@ -175,11 +175,11 @@ namespace ArtOfCooking.Blocks
             renderinfo.ModelRef = ms.GetOrCreateShawarmaMeshRef(itemstack);
         }
 
-        public override MeshData GenMesh(ItemStack itemstack, ITextureAtlasAPI targetAtlas, BlockPos atBlockPos = null)
+       public override MeshData GenMesh(ItemSlot slot, ITextureAtlasAPI targetAtlas, BlockPos atBlockPos = null)
         {
-            return ms.GetShawarmaMesh(itemstack);
+        ItemStack itemstack = slot.Itemstack;
+        return ms.GetShawarmaMesh(itemstack);
         }
-
         public override ItemStack OnPickBlock(IWorldAccessor world, BlockPos pos)
         {
             AOCBEShawarma bec = world.BlockAccessor.GetBlockEntity(pos) as AOCBEShawarma;

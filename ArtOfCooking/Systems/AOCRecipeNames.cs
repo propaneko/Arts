@@ -16,7 +16,7 @@ namespace ArtOfCooking.Systems
     {
         public string GetNameForIngredients(IWorldAccessor worldForResolve, string recipeCode, ItemStack[] stacks)
         {
-            OrderedDictionary<ItemStack, int> quantitiesByStack = new OrderedDictionary<ItemStack, int>();
+            Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, int> quantitiesByStack = new Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, int>();
             quantitiesByStack = mergeStacks(worldForResolve, stacks);
 
             CookingRecipe recipe = worldForResolve.Api.GetCookingRecipe(recipeCode);
@@ -175,9 +175,9 @@ namespace ArtOfCooking.Systems
                 return Lang.Get(code, Lang.Get($"meal-ingredientlist-{ingredients1.Count}", ingredients1.ToArray()));
             return Lang.Get(code, Lang.Get($"meal-ingredientlist-{ingredients1.Count}", ingredients1.ToArray()), Lang.Get($"meal-ingredientlist-{ingredients2.Count}", ingredients2.ToArray()));
         }
-        private OrderedDictionary<ItemStack, int> mergeStacks(IWorldAccessor worldForResolve, ItemStack[] stacks)
+        private Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, int> mergeStacks(IWorldAccessor worldForResolve, ItemStack[] stacks)
         {
-            OrderedDictionary<ItemStack, int> dict = new OrderedDictionary<ItemStack, int>();
+            Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, int> dict = new Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, int>();
 
             List<ItemStack> stackslist = new List<ItemStack>(stacks);
             while (stackslist.Count > 0)

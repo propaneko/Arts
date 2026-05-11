@@ -88,7 +88,7 @@
         "partType": "Filling"
       }
     },
-    "file": "game:itemtypes/food/fish.json",
+    "file": "game:itemtypes/food/fishfillet.json",
     "side": "Server"
   },
   {

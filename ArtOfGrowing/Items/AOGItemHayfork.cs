@@ -82,7 +82,7 @@ namespace ArtOfGrowing.Items
             foreach (var pos in orderedPositions)
             {
                 if (q == 0) break;
-                BlockFacing facing = BlockFacing.FromNormal(player.Entity.ServerPos.GetViewVector()).Opposite;
+                BlockFacing facing = BlockFacing.FromNormal(player.Entity.Pos.GetViewVector()).Opposite;
 
                 if (!player.Entity.World.Claims.TryAccess(player, pos, EnumBlockAccessFlags.BuildOrBreak)) continue;
                 

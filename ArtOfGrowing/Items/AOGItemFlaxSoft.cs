@@ -90,7 +90,7 @@ namespace ArtOfGrowing.Items
             ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("flaxfibers")),quantity);
             if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
             {
-                byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
+                byEntity.World.SpawnItemEntity(stack, byEntity.Pos.XYZ);
             }
             if (!byEntity.LeftHandItemSlot.Empty) 
             {

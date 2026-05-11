@@ -123,7 +123,7 @@ namespace ArtOfCooking.Items
 
                 world.BlockAccessor.SetBlock(doughformBlock.BlockId, placePos);
 
-                if (doughformBlock.Sounds != null) world.PlaySoundAt(doughformBlock.Sounds.Place, blockSel.Position.X, blockSel.Position.Y, blockSel.Position.Z);
+                if (doughformBlock.Sounds != null && doughformBlock.Sounds.Place.Location != null) world.PlaySoundAt(doughformBlock.Sounds.Place.Location, blockSel.Position.X, blockSel.Position.Y, blockSel.Position.Z);
 
                 bec = byEntity.World.BlockAccessor.GetBlockEntity(placePos) as BlockEntityDoughForm;
 

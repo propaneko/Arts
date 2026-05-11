@@ -16,11 +16,16 @@
 		}
 	],
 	"shape": { "base": "game:block/basic/invisible" },
-	"creativeinventory": {
-		"general": [ "" ],
-		"items": [ "" ]
-	},
-	"creativeinventoryStacksByType": {
+"creativeinventory": {
+  "general": [ "" ],
+  "items": [ "" ]
+},
+"attributes": {
+  "handbook": {
+    "ignoreCreativeInvStacks": true
+  }
+},
+"creativeinventoryStacksByType": {
 		"shawarma-raw": [
 			{
 				"tabs": [ "general", "decorative", "artofcooking" ],
@@ -60,10 +65,13 @@
 		]
 	},
 	"attributes": {
-		"nutritionMulByType": {
-			"*": 1
-		}
-	},
+  "handbook": {
+    "ignoreCreativeInvStacks": true
+  },
+  "nutritionMulByType": {
+    "*": 1
+  }
+},
 	"transitionablePropsByType": {
 		"*-raw": [
 			{

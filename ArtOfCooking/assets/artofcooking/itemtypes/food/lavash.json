@@ -33,7 +33,7 @@
     },
     {
       "code": "type",
-      "states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+      "states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "pumpkin" ]
     },
     {
       "code": "state",

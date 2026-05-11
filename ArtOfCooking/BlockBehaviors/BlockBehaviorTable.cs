@@ -51,7 +51,7 @@ namespace ArtOfCooking.BlockBehaviors
 
                 world.BlockAccessor.SetBlock(container.BlockId, placePos);
 
-                if (container.Sounds != null) world.PlaySoundAt(container.Sounds.Place, blockSel.Position.X, blockSel.Position.Y, blockSel.Position.Z);
+               if (container.Sounds != null && container.Sounds.Place.Location != null) world.PlaySoundAt(container.Sounds.Place.Location, blockSel.Position.X, blockSel.Position.Y, blockSel.Position.Z);
                 
                 
                 BlockLiquidContainerTopOpened placeContainer = world.BlockAccessor.GetBlock(placePos) as BlockLiquidContainerTopOpened;

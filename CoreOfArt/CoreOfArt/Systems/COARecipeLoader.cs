@@ -37,7 +37,7 @@ namespace CoreOfArts.Systems
             this.api = sapi;
 
             LoadRecipes<COADoughFormingRecipe>("dough forming recipe", "recipes/doughforming", (r) => sapi.RegisterDoughFormingRecipe(r));
-            
+
             LoadRecipes<COALiquidMixingRecipe>("liquid mixing recipe", "recipes/liquidmixing", (r) => sapi.RegisterLiquidMixingRecipe(r));
 
             sapi.World.Logger.StoryEvent(Lang.Get("Kneaded dough..."));
@@ -75,9 +75,11 @@ namespace CoreOfArts.Systems
             if (!recipe.Enabled) return;
             if (recipe.Name == null) recipe.Name = path;
 
-            Dictionary<string, string[]> nameToCodeMapping = (recipe as COALiquidMixingRecipe)?.GetNameToCodeMapping(api.World) 
-                ?? new Dictionary<string, string[]>();
-
+            Dictionary<string, string[]> nameToCodeMapping =
+    ((recipe as COADoughFormingRecipe)?.GetNameToCodeMappingForLoader(api.World))
+        ?.ToDictionary(val => val.Key, val => val.Value.ToArray())
+    ?? (recipe as COALiquidMixingRecipe)?.GetNameToCodeMapping(api.World)
+    ?? new Dictionary<string, string[]>();
 
             if (nameToCodeMapping.Count > 0)
             {
@@ -201,7 +203,7 @@ namespace CoreOfArts.Systems
         public override void Start(ICoreAPI api)
         {
             DoughFormingRecipes = api.RegisterRecipeRegistry<RecipeRegistryGeneric<COADoughFormingRecipe>>("doughformingrecipes").Recipes;
-        
+
             LiquidMixingRecipes = api.RegisterRecipeRegistry<RecipeRegistryGeneric<COALiquidMixingRecipe>>("liquidmixingrecipes").Recipes;
         }
         public void RegisterDoughFormingRecipe(COADoughFormingRecipe recipe)
@@ -210,7 +212,7 @@ namespace CoreOfArts.Systems
             recipe.RecipeId = DoughFormingRecipes.Count + 1;
 
             DoughFormingRecipes.Add(recipe);
-        }        
+        }
         public void RegisterLiquidMixingRecipe(COALiquidMixingRecipe recipe)
         {
             if (!canRegister) throw new InvalidOperationException("Coding error: Can no long register cooking recipes. Register them during AssetsLoad/AssetsFinalize and with ExecuteOrder < 99999");
@@ -232,4 +234,3 @@ namespace CoreOfArts.Systems
 
     }
 }
-

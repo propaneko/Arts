@@ -53,23 +53,21 @@ namespace ArtOfCooking.Blocks
 
             return tryPlacedBeginEatMeal(dummySlot, byPlayer);
         }
-        
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
         {
             MultiTextureMeshRef meshref = meshCache.GetOrCreateMealInContainerMeshRef(this, GetCookingRecipe(capi.World, itemstack), GetNonEmptyContents(capi.World, itemstack));
             if (meshref != null) renderinfo.ModelRef = meshref;
         }
-        
-        public override MeshData GenMesh(ItemStack itemstack, ITextureAtlasAPI targetAtlas, BlockPos forBlockPos = null)
+        public override MeshData GenMesh(ItemSlot slot, ITextureAtlasAPI targetAtlas, BlockPos forBlockPos = null)
         {
             var capi = api as ICoreClientAPI;
+            ItemStack itemstack = slot.Itemstack;
             return meshCache.GenMealInContainerMesh(this, GetCookingRecipe(capi.World, itemstack), GetNonEmptyContents(capi.World, itemstack));
         }
-        public override string GetMeshCacheKey(ItemStack itemstack)
+       public override string GetMeshCacheKey(ItemSlot slot)
         {
-            return ""+meshCache.GetMealHashCode(itemstack);
+        return "" + meshCache.GetMealHashCode(slot.Itemstack);
         }
-        
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
             float temp = GetTemperature(world, inSlot.Itemstack);
@@ -141,13 +139,13 @@ namespace ArtOfCooking.Blocks
                     {
                         if (stacks[i] != null && stacks[i].StackSize > 0 && stacks[i].Collectible.Code.Path == "rot")
                         {
-                            world.SpawnItemEntity(stacks[i], entityItem.ServerPos.XYZ);
+                            world.SpawnItemEntity(stacks[i], entityItem.Pos.XYZ);
                         }
                     }
                 } else
                 {
                     ItemStack rndStack = stacks[world.Rand.Next(stacks.Length)];
-                    world.SpawnCubeParticles(entityItem.ServerPos.XYZ, rndStack, 0.3f, 25, 1, null);
+                    world.SpawnCubeParticles(entityItem.Pos.XYZ, rndStack, 0.3f, 25, 1, null);
                 }
 
                 var eatenBlock = Attributes["eatenBlock"].AsString();

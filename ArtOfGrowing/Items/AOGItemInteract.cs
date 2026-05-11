@@ -110,7 +110,7 @@ namespace ArtOfGrowing.Items
                         ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:flaxbundle-soft")),quantity); 
                         if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
                         {
-                            byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
+                            byEntity.World.SpawnItemEntity(stack, byEntity.Pos.XYZ);
                         } 
                         if (!byEntity.LeftHandItemSlot.Empty && byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") 
                         {
@@ -138,7 +138,7 @@ namespace ArtOfGrowing.Items
                         ItemStack stack = new ItemStack(asset,GameMath.RoundRandom(api.World.Rand, 3.5f) * quantity);
                         if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
                         {
-                            byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
+                            byEntity.World.SpawnItemEntity(stack, byEntity.Pos.XYZ);
                         } 
                     } 
                     return;

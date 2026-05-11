@@ -1,20 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\ArtsXSkills</OutputPath>
+    <OutputPath>$(APPDATA)\VintagestoryData\Mods\ArtsXSkills</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="ArtOfGrowing">
-      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing\ArtOfGrowing.dll</HintPath>
-		<Private>false</Private>
-    </Reference>
-    <Reference Include="CoreOfArts">
-      <HintPath>C:\Users\Propaneko\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
-		<Private>false</Private>
-    </Reference>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
       <Private>false</Private>
@@ -60,6 +52,7 @@
     </Reference>
     <Reference Include="xskills">
       <HintPath>..\xskills.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 

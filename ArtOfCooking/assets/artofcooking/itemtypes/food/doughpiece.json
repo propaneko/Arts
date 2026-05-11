@@ -47,7 +47,7 @@
 		},
 		{
 			"code": "type",
-			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "pumpkin" ]
 		}
 	],
 	"shape": { "base": "item/food/doughpiece" },

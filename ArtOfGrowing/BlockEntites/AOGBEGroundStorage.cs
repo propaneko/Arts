@@ -263,6 +263,12 @@ namespace ArtOfGrowing.BlockEntites
             UpdateBurningState();
         }     
 
+        public override void updateMeshes()
+        {
+            if (StorageProps?.Layout == EnumGroundStorageLayout.Stacking) return;
+            base.updateMeshes();
+        }
+
         protected virtual float Inventory_OnAcquireTransitionSpeed(EnumTransitionType transType, ItemStack stack, float baseMul)
         {
             bool canWater = false;
@@ -922,9 +928,9 @@ namespace ArtOfGrowing.BlockEntites
                 MarkDirty();
 
                 Cuboidf[] collBoxes = Api.World.BlockAccessor.GetBlock(Pos).GetCollisionBoxes(Api.World.BlockAccessor, Pos);
-                if (collBoxes != null && collBoxes.Length > 0 && CollisionTester.AabbIntersect(collBoxes[0], Pos.X, Pos.Y, Pos.Z, player.Entity.SelectionBox, player.Entity.SidedPos.XYZ))
+                if (collBoxes != null && collBoxes.Length > 0 && CollisionTester.AabbIntersect(collBoxes[0], Pos.X, Pos.Y, Pos.Z, player.Entity.SelectionBox, player.Entity.Pos.XYZ))
                 {
-                    player.Entity.SidedPos.Y += collBoxes[0].Y2 - (player.Entity.SidedPos.Y - (int)player.Entity.SidedPos.Y);
+                    player.Entity.Pos.Y += collBoxes[0].Y2 - (player.Entity.Pos.Y - (int)player.Entity.Pos.Y);
                 }
 
                 return true;
@@ -1393,26 +1399,32 @@ namespace ArtOfGrowing.BlockEntites
                     }
                 }, "AOGgroundStorageRendererD");
             }
+            
             NeedsRetesselation = false;
             lock (inventoryLock)
             {  
-                if (!Inventory.Empty && StorageProps?.Layout == EnumGroundStorageLayout.Stacking) // bypassed renderer that was breaking client-side grass stack in 1.22 -trumiic
+                 // Suppress vanilla render when inventory not yet populated for stacking layout
+                if (Inventory.Empty && StorageProps?.Layout == EnumGroundStorageLayout.Stacking)
                 {
-                    var slot = Inventory[0];
-                    if (slot?.Itemstack != null)
-                    {
-                        var mesh = getOrCreateMesh(slot, 0);
-                        if (mesh != null)
-                        {
-                            meshdata.AddMeshData(mesh);
-                            return false;
-                        }
-                    }
+                    return true; // return true = suppress default rendering, wait for inventory to arrive
                 }
                 
-                return base.OnTesselation(meshdata, tesselator);
+                if (!Inventory.Empty && StorageProps?.Layout == EnumGroundStorageLayout.Stacking)
+            {
+                var slot = Inventory[0];
+                if (slot?.Itemstack != null)
+                {
+                    var mesh = getOrCreateMesh(slot, 0);
+                    if (mesh != null)
+                    {
+                        meshdata.AddMeshData(mesh);
+                        return true; // suppress base rendering... -Trumiic
+                    }
+                }
             }
+            return base.OnTesselation(meshdata, tesselator);
         }
+    }
 
         Vec3f rotatedOffset(Vec3f offset, float radY)
         {

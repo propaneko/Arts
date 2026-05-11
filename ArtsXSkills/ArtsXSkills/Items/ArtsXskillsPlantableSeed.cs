@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System;
+using System.Reflection;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -141,7 +142,7 @@ namespace ArtsXSlills
                             playerAbility = playerSkill[farming.CultivatedSeedsId];
                             if (playerAbility?.Tier > 0 )
                             {
-                                if (farmland.roomness > 0) farmland.TryGrowCrop(api.World.Calendar.TotalHours);
+                                if (GetRoomness(farmland) > 0) farmland.TryGrowCrop(api.World.Calendar.TotalHours);
                                 if (byEntity.World.Rand.NextDouble() < playerAbility.SkillDependentFValue()) farmland.TryGrowCrop(api.World.Calendar.TotalHours);
                             }
                         }
@@ -257,6 +258,20 @@ namespace ArtsXSlills
             dsc.AppendLine(Lang.Get("soil-growth-time") + " " + Lang.Get("count-days", Math.Round(totalDays, 1)));
             dsc.AppendLine(Lang.Get("crop-coldresistance", Math.Round(cropBlock.CropProps.ColdDamageBelow, 1)));
             dsc.AppendLine(Lang.Get("crop-heatresistance", Math.Round(cropBlock.CropProps.HeatDamageAbove, 1)));
+           }
+            private static float GetRoomness(BlockEntityFastForwardGrowth be)
+            {
+            FieldInfo field = typeof(BlockEntityFastForwardGrowth).GetField(
+                "roomness",
+                BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
+             );
+
+            if (field?.GetValue(be) is float value)
+            {
+                return value;
+            }
+
+            return 0f;
         }
 
     }//!public class ArtsXskillsItemPlantableSeed

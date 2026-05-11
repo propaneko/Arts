@@ -94,7 +94,7 @@ namespace ArtOfGrowing.Items
             handHandling = bhHandHandling;
         }
         
-        void WalkBehaviors(CollectibleBehaviorDelegate onBehavior, Action defaultAction)
+        public new void WalkBehaviors(CollectibleBehaviorDelegate onBehavior, Action defaultAction = null)
         {
             bool executeDefault = true;
             foreach (CollectibleBehavior behavior in CollectibleBehaviors)

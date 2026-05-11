@@ -252,7 +252,7 @@ namespace ArtOfCooking.Blocks
                     handslot.MarkDirty();
                     if (eggshellStack != null && byPlayer?.InventoryManager.TryGiveItemstack(eggshellStack) == false)
                     {
-                        world.SpawnItemEntity(eggshellStack, byPlayer.Entity.SidedPos.XYZ);
+                        world.SpawnItemEntity(eggshellStack, byPlayer.Entity.Pos.XYZ);
                     }
                 }
             }
