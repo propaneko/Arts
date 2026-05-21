@@ -1,12 +1,13 @@
-﻿using System.IO;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Vintagestory.API.Common;
-using Vintagestory.API.Util;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using static HarmonyLib.Code;
 
 namespace CoreOfArts.Systems
 {
@@ -121,34 +122,62 @@ protected override Dictionary<string, HashSet<string>> GetNameToCodeMapping(IWor
         }
 
         public override void ToBytes(BinaryWriter writer)
-{
-    Ingredient.ToBytes(writer);
-
-    if (Output?.ResolvedItemstack != null)
-    {
-        JsonItemStack resolvedOutput = new JsonItemStack()
         {
-            Type = Output.ResolvedItemstack.Class,
-            Code = Output.ResolvedItemstack.Collectible.Code,
-            StackSize = Output.ResolvedItemstack.StackSize
-        };
-
-        resolvedOutput.ToBytes(writer);
-    }
-    else
-    {
-        Output.ToBytes(writer);
-    }
-}
+            writer.Write(RecipeId);
+            base.ToBytes(writer);
+            Ingredient.ToBytes(writer);
+            if (Output?.ResolvedItemstack != null)
+            {
+                JsonItemStack resolvedOutput = new JsonItemStack()
+                {
+                    Type = Output.ResolvedItemstack.Class,
+                    Code = Output.ResolvedItemstack.Collectible.Code,
+                    StackSize = Output.ResolvedItemstack.StackSize
+                };
+                resolvedOutput.ToBytes(writer);
+            }
+            else
+            {
+                Output.ToBytes(writer);
+            }
+            writer.Write(Pattern?.Length ?? 0);
+            if (Pattern != null)
+            {
+                for (int y = 0; y < Pattern.Length; y++)
+                {
+                    writer.Write(Pattern[y].Length);
+                    for (int z = 0; z < Pattern[y].Length; z++)
+                    {
+                        writer.Write(Pattern[y][z]);
+                    }
+                }
+            }
+        }
 
         public override void FromBytes(BinaryReader reader, IWorldAccessor resolver)
         {
+            RecipeId = reader.ReadInt32();
+            base.FromBytes(reader, resolver);
             Ingredient = new CraftingRecipeIngredient();
             Ingredient.FromBytes(reader, resolver);
             Ingredient.Resolve(resolver, "DoughForming FromBytes");
             Output = new JsonItemStack();
             Output.FromBytes(reader, resolver.ClassRegistry);
             Output.Resolve(resolver, "DoughForming FromBytes");
+            int layerCount = reader.ReadInt32();
+            if (layerCount > 0)
+            {
+                Pattern = new string[layerCount][];
+                for (int y = 0; y < layerCount; y++)
+                {
+                    int rowCount = reader.ReadInt32();
+                    Pattern[y] = new string[rowCount];
+                    for (int z = 0; z < rowCount; z++)
+                    {
+                        Pattern[y][z] = reader.ReadString();
+                    }
+                }
+            }
         }
 
         IRecipeIngredient[] ICOARecipe.Ingredients => Ingredient != null
@@ -163,6 +192,10 @@ protected override Dictionary<string, HashSet<string>> GetNameToCodeMapping(IWor
             {
                 bool[,,] voxels = new bool[16, 16, 16];
                 if (Pattern == null) return voxels;
+                int width = Pattern[0].Length;
+                int length = Pattern[0][0].Length;
+                int startX = (16 - width) / 2;
+                int startZ = (16 - length) / 2;
                 for (int y = 0; y < Pattern.Length; y++)
                 {
                     string[] rows = Pattern[y];
@@ -171,7 +204,7 @@ protected override Dictionary<string, HashSet<string>> GetNameToCodeMapping(IWor
                         string row = rows[z];
                         for (int x = 0; x < row.Length; x++)
                         {
-                            voxels[x, y, z] = row[x] != '_';
+                            voxels[x + startX, y, z + startZ] = row[x] != '_' && row[x] != ' ';
                         }
                     }
                 }
