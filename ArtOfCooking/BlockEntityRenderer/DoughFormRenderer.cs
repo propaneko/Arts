@@ -80,6 +80,8 @@ namespace ArtOfCooking.BlockEntityRenderer
             EntityPos plrPos = worldAccess.Player.Entity.Pos;
             Vec3d camPos = worldAccess.Player.Entity.CameraPos;
 
+            if (plrPos.SquareDistanceTo(pos.X, pos.Y, pos.Z) > 16) return;
+
             ModelMat.Set(rpi.CameraMatrixOriginf).Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z);
             outLineColorMul.A = 1 - GameMath.Clamp((float)Math.Sqrt(plrPos.SquareDistanceTo(pos.X, pos.Y, pos.Z)) / 5 - 1f, 0, 1);
 
