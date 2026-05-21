@@ -6,7 +6,7 @@
     "Fedarmens"
   ],
   "description": "The main mod-library for other mods of the Arts series.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dependencies": {
     "game": ""
   }
