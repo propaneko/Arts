@@ -144,7 +144,7 @@
 			{
 				"type": "item",
 				"code": "artofgrowing:seeds-{size}-turnip",				
-				"quantity": { "avg": 1.2 }
+				"quantity": { "avg": 3.2 }
 			},
 			{
 				"type": "item",

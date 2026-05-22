@@ -124,7 +124,7 @@ namespace ArtOfCooking.BlockEntities
                 baseMaterial.StackSize = 1;
             }
 
-            AvailableVoxels += 0;
+            AvailableVoxels += 36;
 
             slot.TakeOut(1);
             slot.MarkDirty();
@@ -708,7 +708,7 @@ namespace ArtOfCooking.BlockEntities
 
                 if (recipe == null)
                 {
-                    Api.World.Logger.Error("Client tried to selected doughforming recipe with id {0}, but no such recipe exists!");
+                    Api.World.Logger.Error("Client tried to selected doughforming recipe with id {0}, but no such recipe exists!", recipeid);
                     selectedRecipe = null;
                     selectedRecipeId = -1;
                     return;

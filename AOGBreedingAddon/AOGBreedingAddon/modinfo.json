@@ -6,7 +6,7 @@
     "Fedarmens"
   ],
   "description": "Cultivation of plants from wild to cultivated varieties.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dependencies": {
     "game": "",
     "coreofartspatch": "",
