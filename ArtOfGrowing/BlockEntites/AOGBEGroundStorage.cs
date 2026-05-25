@@ -1488,20 +1488,22 @@ namespace ArtOfGrowing.BlockEntites
             return (StorageProps.ModelItemsToStackSizeRatio > 0 ? slot.Itemstack.StackSize : 1) + "x" + base.getMeshCacheKey(slot);
         }
 
-        protected new MeshData getOrCreateMesh(ItemSlot slot, int index)
-        {   
-            if(slot.Itemstack.Class == EnumItemClass.Block)
+           protected new MeshData getOrCreateMesh(ItemSlot slot, int index)
+        {
+            if (StorageProps.Layout != EnumGroundStorageLayout.Stacking)
             {
-                MeshRefs[index] = capi.TesselatorManager.GetDefaultBlockMeshRef(slot.Itemstack.Block);
+                if (slot.Itemstack.Class == EnumItemClass.Block)
+                {
+                    MeshRefs[index] = capi.TesselatorManager.GetDefaultBlockMeshRef(slot.Itemstack.Block);
+                }
+                else if (slot.Itemstack.Class == EnumItemClass.Item)
+                {
+                    MeshRefs[index] = capi.TesselatorManager.GetDefaultItemMeshRef(slot.Itemstack.Item);
+                }
             }
-            // shingle/bricks are items but uses Stacking layout to get the mesh, so this should be not needed atm
-            else if(slot.Itemstack.Class == EnumItemClass.Item && StorageProps.Layout != EnumGroundStorageLayout.Stacking)
-            {
-                MeshRefs[index] = capi.TesselatorManager.GetDefaultItemMeshRef(slot.Itemstack.Item);
-            }
+
             if (StorageProps.Layout == EnumGroundStorageLayout.Stacking)
             {
-                
                 var key = getMeshCacheKey(slot);
                 var mesh = getMesh(slot);
 
@@ -1525,9 +1527,16 @@ namespace ArtOfGrowing.BlockEntites
 
                 MeshCache[key] = mesh;
 
-                if (UploadedMeshCache.TryGetValue(key, out var mr)) mr.Dispose();
-                UploadedMeshCache[key] = capi.Render.UploadMultiTextureMesh(mesh);
-                MeshRefs[index] = UploadedMeshCache[key];
+                // Upload on main thread to avoid glGenVertexArrays segfault
+                capi.Event.EnqueueMainThreadTask(() =>
+                {
+                    if (UploadedMeshCache.TryGetValue(key, out var mr)) mr.Dispose();
+                    UploadedMeshCache[key] = capi.Render.UploadMultiTextureMesh(mesh);
+                    MeshRefs[index] = UploadedMeshCache[key];
+                    // Trigger a retesselation so OnTesselation runs again now that MeshRefs is populated
+                    MarkDirty(true);
+                }, "AOGuploadStackMesh");
+
                 return mesh;
             }
 
