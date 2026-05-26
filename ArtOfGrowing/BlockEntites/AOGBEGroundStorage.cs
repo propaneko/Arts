@@ -1537,9 +1537,13 @@ namespace ArtOfGrowing.BlockEntites
 
                 MeshCache[key] = mesh;
 
-                if (UploadedMeshCache.TryGetValue(key, out var mr)) mr.Dispose();
-                UploadedMeshCache[key] = capi.Render.UploadMultiTextureMesh(mesh);
-                MeshRefs[index] = UploadedMeshCache[key];
+                capi.Event.EnqueueMainThreadTask(() =>
+                {
+                    if (UploadedMeshCache.TryGetValue(key, out var mr)) mr.Dispose();
+                    UploadedMeshCache[key] = capi.Render.UploadMultiTextureMesh(mesh);
+                    MeshRefs[index] = UploadedMeshCache[key];
+                }, "AOGUploadStackMesh");
+
                 return mesh;
             }
 
