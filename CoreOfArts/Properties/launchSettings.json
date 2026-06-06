@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Package": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "workingDirectory": "$(SolutionDir)/CakeBuild",
+      "commandLineArgs": "run --project=CakeBuild.csproj -p:VintageStoryPath=$(VintageStoryPath) -- --vs=$(VintageStoryPath) --in=$(ModDeployRoot) --projects=$(MSBuildProjectName)"
+    }
+  }
+}
