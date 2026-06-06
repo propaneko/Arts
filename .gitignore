@@ -362,3 +362,9 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /ArtOfGrowing/BlockEntites/AOGBEGroundStorage1.cs
+
+# Ignore local overrides in /dev directory
+/dev/**/Local*
+
+# But re-include templates! 
+!/dev/**/*.template 

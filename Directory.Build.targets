@@ -1,0 +1,19 @@
+﻿<Project>    
+    <!-- Obtains and prints the current mod version as written in project's modinfo.json -->
+    <Target Name="ReadModInfoVersion" BeforeTargets="BeforeBuild">
+        <ReadLinesFromFile File="$(ProjectDir)\modinfo.json">
+            <Output TaskParameter="Lines" ItemName="_ModInfoLines" />
+        </ReadLinesFromFile>
+        <PropertyGroup>
+            <_ModInfoJson>@(_ModInfoLines,'')</_ModInfoJson>
+            <ModVersion>$([System.Text.RegularExpressions.Regex]::Match('$(_ModInfoJson)', '&quot;version&quot;\s*:\s*&quot;([^&quot;]+)&quot;').Groups[1].Value)</ModVersion>
+        </PropertyGroup>
+        <Message Text="ModVersion=$(ModVersion)" Importance="High" />
+    </Target>
+    
+    <!-- Prints the current values of select Build Properties -->
+    <Target Name="PrintEnv" BeforeTargets="BeforeBuild">
+        <Message Text="VintageStoryPath=$(VintageStoryPath)" Importance="High"/>
+        <Message Text="ModDeployRoot=$(ModDeployRoot)" Importance="High"/>
+    </Target>
+</Project>

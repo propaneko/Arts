@@ -2,15 +2,15 @@
   "profiles": {
     "Client": {
       "commandName": "Executable",
-      "executablePath": "$(VINTAGE_STORY)/Vintagestory.exe",
-      "commandLineArgs": "--tracelog",
-      "workingDirectory": "$(VINTAGE_STORY)"
+      "executablePath": "$(VintageStoryPath)/Vintagestory.exe",
+      "commandLineArgs": "--tracelog --addModPath $(ModDeployRoot)",
+      "workingDirectory": "$(VintageStoryPath)"
     },
     "Server": {
       "commandName": "Executable",
-      "executablePath": "$(VINTAGE_STORY)/VintagestoryServer.exe",
-      "commandLineArgs": "--tracelog --addModPath \"$(ProjectDir)/bin/$(Configuration)/Mods\"",
-      "workingDirectory": "$(VINTAGE_STORY)"
+      "executablePath": "$(VintageStoryPath)/VintagestoryServer.exe",
+      "commandLineArgs": "--tracelog --addModPath $(ModDeployRoot)",
+      "workingDirectory": "$(VintageStoryPath)"
     }
   }
 }

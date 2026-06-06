@@ -1,0 +1,8 @@
+﻿<Project>
+    <PropertyGroup Label="MyAwesomeOverrides">
+        <!-- If you use Vintage Story Launcher (VSL): -->
+        <VintageStoryPath>$(APPDATA)\VSLGameVersions\1.22.3</VintageStoryPath>
+        <!-- If you'd like an independent /vsdata directory right in the solution root: -->
+        <ModDeployRoot>$(SolutionDir)vsdata\Mods</ModDeployRoot>
+    </PropertyGroup>
+</Project>
