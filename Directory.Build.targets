@@ -1,6 +1,6 @@
 ﻿<Project>    
     <!-- Obtains and prints the current mod version as written in project's modinfo.json -->
-    <Target Name="ReadModInfoVersion" BeforeTargets="BeforeBuild">
+    <Target Name="ReadModInfoVersion" BeforeTargets="BeforeBuild" Condition="$(MSBuildProjectName) != 'CakeBuild'">
         <ReadLinesFromFile File="$(ProjectDir)\modinfo.json">
             <Output TaskParameter="Lines" ItemName="_ModInfoLines" />
         </ReadLinesFromFile>
@@ -12,7 +12,7 @@
     </Target>
     
     <!-- Prints the current values of select Build Properties -->
-    <Target Name="PrintEnv" BeforeTargets="BeforeBuild">
+    <Target Name="PrintEnv" BeforeTargets="BeforeBuild" Condition="$(MSBuildProjectName) != 'CakeBuild'">
         <Message Text="VintageStoryPath=$(VintageStoryPath)" Importance="High"/>
         <Message Text="ModDeployRoot=$(ModDeployRoot)" Importance="High"/>
     </Target>

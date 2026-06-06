@@ -125,7 +125,7 @@
 </ItemGroup>
 
 <ItemGroup>
-  <ProjectReference Include="..\CoreOfArt\CoreOfArt\CoreOfArts.csproj" />
+  <ProjectReference Include="..\CoreOfArts\CoreOfArts.csproj" />
 </ItemGroup>
 
 <ItemGroup>

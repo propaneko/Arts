@@ -1,6 +1,7 @@
 ﻿<Project>
     <PropertyGroup Label="DefaultBuildPropsValues">
         <VintageStoryPath>$(VINTAGE_STORY)</VintageStoryPath>
+        <VSDataPath>$(APPDATA)VintagestoryData</VSDataPath>
         <ModDeployRoot>$(APPDATA)VintagestoryData\Mods</ModDeployRoot>
     </PropertyGroup>
     
