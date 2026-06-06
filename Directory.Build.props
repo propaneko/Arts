@@ -1,0 +1,11 @@
+﻿<Project>
+    <PropertyGroup Label="DefaultBuildPropsValues">
+        <VintageStoryPath>$(VINTAGE_STORY)</VintageStoryPath>
+        <ModDeployRoot>$(APPDATA)VintagestoryData\Mods</ModDeployRoot>
+    </PropertyGroup>
+    
+    <!-- Mod developers' local overrides, if present -->
+    <Import Label="LocalBuildPropsOverrides"
+            Project="$(SolutionDir)/dev/Local.Build.props"
+            Condition="Exists('$(SolutionDir)/dev/Local.Build.props')"/>
+</Project>
