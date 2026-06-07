@@ -196,7 +196,7 @@ public sealed class PackageTask : FrostingTask<BuildContext>
                 context.DeleteFile(zipPath);
             }
             context.EnsureDirectoryExists(tempDir);
-            context.CopyFiles($"{context.InputPath}/{project.Name}/*", tempDir);
+            context.CopyDirectory($"{context.InputPath}/{project.Name}", tempDir);
             context.Zip(tempDir, $"{context.OutputPath}/{zipName}");
             context.Log.Information("Packaged {0} to {1}", project.Name, $"{fullOutPath.GetFilename()}/{zipName}");
             context.DeleteDirectory(tempDir, new() { Recursive = true, Force = true });

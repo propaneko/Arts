@@ -5,6 +5,18 @@
       "executablePath": "dotnet",
       "workingDirectory": "$(SolutionDir)/CakeBuild",
       "commandLineArgs": "run --project=CakeBuild.csproj -p:VintageStoryPath=$(VintageStoryPath) -- --vs=$(VintageStoryPath) --in=$(ModDeployRoot) --projects=$(MSBuildProjectName)"
+    },
+    "Run Client": {
+      "commandName": "Executable",
+      "executablePath": "$(VintageStoryPath)/Vintagestory.exe",
+      "commandLineArgs": "--tracelog --addModPath=$(ModDeployRoot) --dataPath=$(VSDataPath)",
+      "workingDirectory": "$(VintageStoryPath)"
+    },
+    "Run Server": {
+      "commandName": "Executable",
+      "executablePath": "$(VintageStoryPath)/VintagestoryServer.exe",
+      "commandLineArgs": "--tracelog --addModPath=$(ModDeployRoot) --dataPath=$(VSDataPath)",
+      "workingDirectory": "$(VintageStoryPath)"
     }
   }
 }
