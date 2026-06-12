@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -192,8 +192,8 @@ protected override Dictionary<string, HashSet<string>> GetNameToCodeMapping(IWor
             {
                 bool[,,] voxels = new bool[16, 16, 16];
                 if (Pattern == null) return voxels;
-                int width = Pattern[0].Length;
-                int length = Pattern[0][0].Length;
+                int width = Pattern[0][0].Length;
+                int length = Pattern[0].Length;
                 int startX = (16 - width) / 2;
                 int startZ = (16 - length) / 2;
                 for (int y = 0; y < Pattern.Length; y++)
@@ -204,6 +204,9 @@ protected override Dictionary<string, HashSet<string>> GetNameToCodeMapping(IWor
                         string row = rows[z];
                         for (int x = 0; x < row.Length; x++)
                         {
+                            int vx = x + startX;
+                            int vz = z + startZ;
+                            if (vx < 0 || vx >= 16 || vz < 0 || vz >= 16) continue;
                             voxels[x + startX, y, z + startZ] = row[x] != '_' && row[x] != ' ';
                         }
                     }

@@ -185,7 +185,11 @@ namespace ArtOfGrowing
             }
         }
 
-
+        public override EnumItemStorageFlags GetStorageFlags(ItemStack stack, ref EnumHandling handling)
+        {
+            handling = EnumHandling.Handled;
+            return stack.Collectible.StorageFlags | EnumItemStorageFlags.Offhand;
+        }
 
     }
 }
