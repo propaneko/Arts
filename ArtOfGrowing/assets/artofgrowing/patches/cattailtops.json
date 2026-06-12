@@ -1,6 +1,6 @@
 [
   {
-    "op": "replace",
+    "op": "addmerge",
     "path": "/behaviors",
     "value": [
       {
