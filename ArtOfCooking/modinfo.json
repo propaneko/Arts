@@ -6,9 +6,9 @@
     "Fedarmens"
   ],
   "description": "Bronze kitchen appliances. Kneading dough and shawarma.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "dependencies": {
     "game": "",
-    "coreofartspatch": "1.2.1"
+    "coreofartspatch": "1.2.2"
   }
 }
