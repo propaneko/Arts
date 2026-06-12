@@ -1,6 +1,7 @@
-﻿using CoreOfArts.Blocks;
+using CoreOfArts.Blocks;
 using CoreOfArts.CollectibleBehaviors;
 using CoreOfArts.Systems;
+using CoreOfArts.Config;
 using HarmonyLib;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,22 @@ namespace CoreOfArts
 {
     public class CoreOfArtsModSystem : ModSystem
     {
+        public static COAConfig Config { get; private set; }
         private readonly Harmony _harmony = new("coapatch");     
         // Called on server and client
         // Useful for registering block/entity classes on both sides
         public override void Start(ICoreAPI api)
         {
+            // Generate config file
+            Config = api.LoadModConfig<COAConfig>("Arts/CoreOfArts.json") ?? new COAConfig();
+            api.StoreModConfig(Config, "Arts/CoreOfArts.json");
+
             api.RegisterBlockClass("COABlockCookingContainer", typeof(COABlockCookingContainer));
-            api.RegisterCollectibleBehaviorClass("COAInLiquidMixing", typeof(COAInLiquidMixing));
+
+            if (Config.EnableLiquidMixing)
+            {
+                api.RegisterCollectibleBehaviorClass("COAInLiquidMixing", typeof(COAInLiquidMixing));
+            }
 
             ClassRegistry registry = (api as ServerCoreAPI)?.ClassRegistryNative ?? (api as ClientCoreAPI)?.ClassRegistryNative;
             if (registry != null)
