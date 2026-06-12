@@ -1,6 +1,7 @@
-﻿using ArtOfCooking.BlockBehaviors;
+using ArtOfCooking.BlockBehaviors;
 using ArtOfCooking.BlockEntities;
 using ArtOfCooking.Blocks;
+using ArtOfCooking.Config;
 using ArtOfCooking.Items;
 using ArtOfCooking.Systems;
 using Vintagestory;
@@ -8,31 +9,33 @@ using Vintagestory.API.Common;
 using Vintagestory.GameContent;
 
 namespace ArtOfCooking;
+
 public class ArtOfCooking : ModSystem
 {
+    public static AOCConfig Config { get; private set; }
+
     public override void Start(ICoreAPI api)
     {
         base.Start(api);
-        
+
+        Config = api.LoadModConfig<AOCConfig>("Arts/ArtOfCooking.json") ?? new AOCConfig();
+        api.StoreModConfig(Config, "Arts/ArtOfCooking.json");
+
         api.RegisterItemClass("AOCItemDough", typeof(AOCItemDough));
         api.RegisterBlockClass("BlockDoughForm", typeof(BlockDoughForm));
         api.RegisterBlockEntityClass("DoughForm", typeof(BlockEntityDoughForm));
-
         api.RegisterItemClass("AOCItemLavash", typeof(AOCItemLavash));
         api.RegisterBlockClass("AOCBlockShawarma", typeof(AOCBlockShawarma));
         api.RegisterBlockEntityClass("AOCBEShawarma", typeof(AOCBEShawarma));
-        
         api.RegisterBlockClass("AOCBlockSpoon", typeof(AOCBlockSpoon));
         api.RegisterBlockClass("AOCBlockEmptySpoon", typeof(AOCBlockEmptySpoon));
         api.RegisterBlockEntityClass("AOCBlockEntitySpoon", typeof(AOCBlockEntitySpoon));
-        
         api.RegisterBlockBehaviorClass("AOCTable", typeof(AOCBlockBehaviorTable));
-        
         api.RegisterItemClass("AOCItemFood", typeof(AOCItemFood));
         api.RegisterItemClass("AOCItemEgg", typeof(AOCItemEgg));
-        
         api.RegisterItemClass("AOCItemRollingPin", typeof(AOCItemRollingPin));
     }
+
     public override void AssetsFinalize(ICoreAPI api)
     {
         base.AssetsFinalize(api);
