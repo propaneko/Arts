@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
@@ -125,6 +125,17 @@ namespace ArtOfCooking.Items
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
+            if (ArtOfCooking.Config.DisableAOCEggs)
+            {
+                base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+                return;
+            }
+
+            if (blockSel == null)
+            {
+                base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+                return;
+            }
             Block block = byEntity.World.BlockAccessor.GetBlock(blockSel.Position);
             if (block != null && CanCrackInto(block, blockSel) && byEntity.Controls.ShiftKey)
             {
@@ -190,6 +201,9 @@ namespace ArtOfCooking.Items
 
         public override bool OnHeldInteractStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
+            if (ArtOfCooking.Config.DisableAOCEggs)
+                return base.OnHeldInteractStep(secondsUsed, slot, byEntity, blockSel, entitySel);
+
             if (blockSel?.Block != null && CanCrackInto(blockSel.Block, blockSel))
             {
                 if (!byEntity.Controls.ShiftKey || slot.Itemstack.Collectible.FirstCodePart() == "eggyolk") 
@@ -208,6 +222,12 @@ namespace ArtOfCooking.Items
         public override void OnHeldInteractStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity,
             BlockSelection blockSel, EntitySelection entitySel)
         {
+            if (ArtOfCooking.Config.DisableAOCEggs)
+            {
+                base.OnHeldInteractStop(secondsUsed, slot, byEntity, blockSel, entitySel);
+                return;
+            }
+
             byEntity.StopAnimation("squeezehoneycomb");
 
             if (blockSel != null)
@@ -289,6 +309,9 @@ namespace ArtOfCooking.Items
 
         public override WorldInteraction[] GetHeldInteractionHelp(ItemSlot inSlot)
         {
+            if (ArtOfCooking.Config.DisableAOCEggs)
+                return base.GetHeldInteractionHelp(inSlot);
+
             if (inSlot.Itemstack.Collectible.FirstCodePart() == "eggyolk")
                 return interactionsyolk.Append(base.GetHeldInteractionHelp(inSlot));
             return interactions.Append(base.GetHeldInteractionHelp(inSlot));
