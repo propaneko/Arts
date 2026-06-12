@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -104,10 +104,14 @@ namespace ArtOfCooking.Systems
 
             api.Event.LeaveWorld += Event_LeaveWorld;
             api.Event.BlockTexturesLoaded += Event_BlockTexturesLoaded;
-        }        
+        }
         private void Event_BlockTexturesLoaded()
         {
-            mealtextureSourceBlock = capi.World.GetBlock(new AssetLocation("claypot-cooked"));
+            mealtextureSourceBlock = capi.World.Blocks.FirstOrDefault(b =>
+                b?.Code?.Domain == "game" &&
+                b.Code?.Path?.StartsWith("claypot-") == true &&
+                b.Code.Path.EndsWith("-cooked")
+            );
         }
 
         public MultiTextureMeshRef GetOrCreateShawarmaMeshRef(ItemStack shawarmaStack)
@@ -342,7 +346,7 @@ namespace ArtOfCooking.Systems
 
             return mealMeshRef;
         }
-        
+
         public MeshData GenMealInContainerMesh(Block containerBlock, CookingRecipe forRecipe, ItemStack[] contentStacks, Vec3f foodTranslate = null)
         {
             CompositeShape cShape = containerBlock.Shape;
@@ -350,8 +354,13 @@ namespace ArtOfCooking.Systems
 
             Shape shape = Shape.TryGet(capi, loc);
             MeshData wholeMesh;
-            capi.Tesselator.TesselateShape("meal", shape, out wholeMesh, capi.Tesselator.GetTextureSource(containerBlock), new Vec3f(cShape.rotateX, cShape.rotateY, cShape.rotateZ));
-            
+
+            var texSource = capi.Tesselator.GetTextureSource(containerBlock, 0, true)
+                ?? capi.Tesselator.GetTextureSource(mealtextureSourceBlock);
+
+            capi.Tesselator.TesselateShape("meal", shape, out wholeMesh, texSource,
+                new Vec3f(cShape.rotateX, cShape.rotateY, cShape.rotateZ));
+
             MeshData mealMesh = GenMealMesh(forRecipe, contentStacks, containerBlock, foodTranslate);
             if (mealMesh != null)
             {
@@ -360,7 +369,7 @@ namespace ArtOfCooking.Systems
 
             return wholeMesh;
         }
-        
+
         public MeshData GenMealMesh(CookingRecipe forRecipe, ItemStack[] contentStacks, Block containerBlock, Vec3f foodTranslate = null)
         {
             MealTextureSource source = new MealTextureSource(capi, mealtextureSourceBlock);
