@@ -101,6 +101,7 @@ namespace ArtOfGrowing.BlockEntites
         public bool IsBurning => burning;
 
         public bool IsHot => burning;
+        public bool ToRemove = false;
 
         public override int DisplayedItems {
             get
@@ -399,9 +400,10 @@ namespace ArtOfGrowing.BlockEntites
                 }
                 MarkDirty(true);
 
-                if (Inventory.Empty)
+                if (Inventory.Empty && ToRemove == false)
                 {
-                    Api.World.BlockAccessor.SetBlock(0, Pos);
+                    ToRemove = true
+                    Api.World.BlockAccessor.BreakBlock(Pos, null, 0);
                 }
             }
         }
@@ -534,9 +536,10 @@ namespace ArtOfGrowing.BlockEntites
                 Inventory[0].MarkDirty();
             }
 
-            if (inventory.Empty && !clientsideFirstPlacement)
+            if (inventory.Empty && !clientsideFirstPlacement && ToRemove == false)
             {
-                Api.World.BlockAccessor.SetBlock(0, Pos);
+                ToRemove = true
+                Api.World.BlockAccessor.BreakBlock(Pos, null, 0);
                 Api.World.BlockAccessor.TriggerNeighbourBlockUpdate(Pos);
             }
 
@@ -672,9 +675,10 @@ namespace ArtOfGrowing.BlockEntites
                         Api.World.SpawnItemEntity(dropI, Pos.ToVec3d().Add(0.5, 0.5, 0.5));                                      
                         Api.World.SpawnItemEntity(dropI2, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
 
-                        if (TotalStackSize == 0)
+                        if (TotalStackSize == 0 && ToRemove == false)
                         {
-                            Api.World.BlockAccessor.SetBlock(0, Pos);
+                            ToRemove = true
+                            Api.World.BlockAccessor.BreakBlock(Pos, null, 0);
                         }
                         
                         if (flailStack) 
@@ -703,9 +707,10 @@ namespace ArtOfGrowing.BlockEntites
                         
                         Api.World.SpawnItemEntity(dropB, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
                         
-                        if (TotalStackSize == 0)
+                        if (TotalStackSize == 0 && ToRemove == false)
                         {
-                            Api.World.BlockAccessor.SetBlock(0, Pos);
+                            ToRemove = true
+                            Api.World.BlockAccessor.BreakBlock(Pos, null, 0);
                         }
                         
                         Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X, Pos.Y, Pos.Z, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
@@ -961,9 +966,10 @@ namespace ArtOfGrowing.BlockEntites
                 );
             }
 
-            if (TotalStackSize == 0)
+            if (TotalStackSize == 0 && ToRemove == false)
             {
-                Api.World.BlockAccessor.SetBlock(0, Pos);
+                ToRemove = true
+                Api.World.BlockAccessor.BreakBlock(Pos, null, 0);
             }
 
             Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
@@ -1684,9 +1690,10 @@ namespace ArtOfGrowing.BlockEntites
                 burnStartTotalHours += burnHoursPerItem;
                 inventory[0].TakeOut(1);
 
-                if (inventory[0].Empty)
+                if (inventory[0].Empty && ToRemove == false)
                 {
-                    Api.World.BlockAccessor.SetBlock(0, Pos);
+                    ToRemove = true
+                    Api.World.BlockAccessor.BreakBlock(Pos, null, 0);
                     break;
                 }
 
